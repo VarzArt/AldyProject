@@ -1,10 +1,16 @@
 @import "tailwindcss";
 
+@theme {
+  --breakpoint-xl: 92rem;
+}
+
 :root {
   --backPrimary: #111111;
   --textPrimary: #ffffff;
   --textSecondary: #A3A3A3;
-  --pinkPrimary: #F0AFFF
+  --pinkPrimary: #F0AFFF;
+  --pinkSecondary: #C26BD6;
+  --backSecondary: #f1f1f1
 }
 
 @font-face {
