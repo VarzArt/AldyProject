@@ -1,13 +1,13 @@
-import React from 'react'
+import React from 'react';
 
 type NavItemProps = {
-    label: string
-}
+	label: string;
+};
 
-export default function NavItem({label}: NavItemProps) {
-  return (
-    <div className='font-medium text-base uppercase text-(--textPrimary) hover:text-(--pinkPrimary) duration-150 ease-in-out cursor-pointer font-[Satoshi]'>
-        {label}
-    </div>
-  )
+export default function NavItem({ label }: NavItemProps) {
+	return (
+		<div className="font-medium text-xs xl:text-sm uppercase text-(--textPrimary) hover:text-(--pinkPrimary) duration-150 ease-in-out cursor-pointer font-[Satoshi]">
+			{label}
+		</div>
+	);
 }
