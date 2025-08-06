@@ -1,11 +1,9 @@
 'use client';
 
-import Heading from '@/components/ui/heading/Heading';
 import React, { useState, useRef } from 'react';
 import Image from 'next/image';
 import arrow from '@/assets/images/arrow.png';
-import FormUi from '@/components/ui/form/FormUi';
-import ScrollAnimation from '@/components/ui/scrollAnimation/ScrollAnimation';
+import { FormUi, Heading, ScrollAnimation } from '@/components';
 
 type Props = {};
 

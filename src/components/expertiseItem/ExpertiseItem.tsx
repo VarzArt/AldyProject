@@ -1,5 +1,5 @@
 import React from 'react';
-import Heading from '../ui/heading/Heading';
+import { Heading } from '@/components/ui';
 
 type ExpertiseItemProps = {
 	number: number;

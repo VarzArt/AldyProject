@@ -1,8 +1,6 @@
-import ButtonUi from '@/components/ui/button/ButtonUi';
 import React from 'react';
 import { servicesConsts } from './services.constants';
-import ServiceItem from '@/components/serviceItem/ServiceItem';
-import ScrollAnimation from '@/components/ui/scrollAnimation/ScrollAnimation';
+import { ButtonUi, ScrollAnimation, ServiceItem } from '@/components';
 
 type Props = {};
 

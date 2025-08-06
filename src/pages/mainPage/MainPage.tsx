@@ -1,10 +1,10 @@
 'use client';
 
 import React from 'react';
-import { infoCardsConstants } from './mainPage.constants';
-import InfoCard from '@/components/infoCard/InfoCard';
-import Heading from '@/components/ui/heading/Heading';
-import ScrollAnimation from '@/components/ui/scrollAnimation/ScrollAnimation';
+import { aboutConstants, infoCardsConstants } from './mainPage.constants';
+import AboutItem from './about/aboutItem/AboutItem';
+import YearItem from './yearItem/YearItem';
+import { Heading, InfoCard, ScrollAnimation } from '@/components';
 
 type Props = {};
 
@@ -16,12 +16,12 @@ export default function MainPage({}: Props) {
 				<div className="uppercase opacity-60 xl:text-sm text-[13px]">we are free for projects</div>
 			</div>
 			<div className="flex items-center justify-between w-full">
-				<div className="opacity-60 text-xs xl:text-sm pb-9">2019</div>
+				<YearItem year="2019"></YearItem>
 				<Heading
 					text={`digital design \n studio`}
 					className="uppercase xl:text-[112px] text-[98px] font-black leading-[100%] tracking-[-2%] max-w-[1168px] text-center whitespace-pre-line"
 				></Heading>
-				<div className="opacity-60 text-xs xl:text-sm pb-9">2025</div>
+				<YearItem year="2025"></YearItem>
 			</div>
 			<div className="text-center w-[780px] xl:py-[60px] py-10 opacity-60 xl:text-xl text-[18px] font-normal">
 				Welcome to our design studio, where creativity meets innovation. <br /> We specialize in transforming ideas into
@@ -54,29 +54,9 @@ export default function MainPage({}: Props) {
 					</ScrollAnimation>
 				</div>
 				<div className="w-[50%] flex flex-col xl:gap-[80px] gap-15" id="about">
-					<div className="flex flex-col xl:gap-[28px] gap-[20px]">
-						<ScrollAnimation>
-							<div className="opacity-40 uppercase xl:text-sm text-xs">Who we are?</div>
-						</ScrollAnimation>
-						<ScrollAnimation>
-							<div className="xl:text-[32px] text-[26px] font-medium leading-[140%]">
-								We are a design studio specializing in website development and branding. Our team of talented designers
-								and developers creates unique visual solutions that reflect the individuality of each client.
-							</div>
-						</ScrollAnimation>
-					</div>
-					<div className="flex flex-col xl:gap-[28px] gap-[20px]">
-						<ScrollAnimation>
-							<div className="opacity-40 uppercase xl:text-sm text-xs">How we help?</div>
-						</ScrollAnimation>
-						<ScrollAnimation>
-							<div className="xl:text-[32px] text-[26px] font-medium leading-[140%]">
-								We help companies stand out and communicate effectively with the audience. We develop functional
-								websites and vivid visual identities that contribute to the growth of trust and loyalty to your brand.
-								Our goal is to make your business more visible and successful in the digital space.
-							</div>
-						</ScrollAnimation>
-					</div>
+					{aboutConstants.map((aboutItem) => (
+						<AboutItem key={aboutItem.id} name={aboutItem.name} desc={aboutItem.desc}></AboutItem>
+					))}
 				</div>
 			</div>
 			<div className="xl:pt-[140px] pt-[100px] flex justify-between items-center w-full font-[Satoshi]">

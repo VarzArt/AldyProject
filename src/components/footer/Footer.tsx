@@ -1,11 +1,9 @@
 'use client';
 
 import React, { useState } from 'react';
-import { navBarTabs, socialMedia } from '../header/header.constants';
-import ButtonUi from '../ui/button/ButtonUi';
-import SubHeader from '../ui/subheader/SubHeader';
-import ScrollAnimation from '../ui/scrollAnimation/ScrollAnimation';
-import Link from 'next/link';
+import { navBarTabs, socialMedia } from '@/components/component.constants';
+import { ButtonUi, ScrollAnimation, SubHeader } from '@/components/ui';
+import FooterCol from './footerCol/FooterCol';
 
 type Props = {};
 
@@ -73,42 +71,8 @@ export default function Footer({}: Props) {
 					</ScrollAnimation>
 				</div>
 				<div className="w-[50%] flex justify-between items-start">
-					<div className="flex flex-col items-start xl:gap-10 gap-6">
-						<ScrollAnimation>
-							<SubHeader text="sitemap"></SubHeader>
-						</ScrollAnimation>
-						<div className="flex flex-col xl:gap-4 gap-3">
-							{navBarTabs.map((tab) => (
-								<ScrollAnimation key={tab.id}>
-									<div
-										className={`text-xl font-medium ${
-											activeColor === 'pink' ? 'hover:text-(--pinkPrimary)' : 'hover:text-(--backSecondary)'
-										} duration-150 ease-in-out cursor-pointer`}
-									>
-										{tab.label}
-									</div>
-								</ScrollAnimation>
-							))}
-						</div>
-					</div>
-					<div className="flex flex-col items-start xl:gap-10 gap-6">
-						<ScrollAnimation>
-							<SubHeader text="socials"></SubHeader>
-						</ScrollAnimation>
-						<div className="flex flex-col xl:gap-4 gap-3">
-							{socialMedia.map((tab) => (
-								<ScrollAnimation key={tab.id}>
-									<div
-										className={`text-xl font-medium ${
-											activeColor === 'pink' ? 'hover:text-(--pinkPrimary)' : 'hover:text-(--backSecondary)'
-										} duration-150 ease-in-out cursor-pointer`}
-									>
-										{tab.label}
-									</div>
-								</ScrollAnimation>
-							))}
-						</div>
-					</div>
+					<FooterCol name="sitemap" color={activeColor} tabs={navBarTabs}></FooterCol>
+					<FooterCol name="socials" color={activeColor} tabs={socialMedia}></FooterCol>
 					<ScrollAnimation>
 						<ButtonUi variant={activeColor === 'pink' ? 'subPrimary' : 'subPrimaryHover'} onClick={backToTop}>
 							Back to top
