@@ -1,7 +1,6 @@
 import React from 'react';
 import { expertiseConsts } from './expertise.constants';
-import ExpertiseItem from '@/components/expertiseItem/ExpertiseItem';
-import ScrollAnimation from '@/components/ui/scrollAnimation/ScrollAnimation';
+import { ExpertiseItem, ScrollAnimation, SubHeader } from '@/components';
 
 type Props = {};
 
@@ -13,7 +12,7 @@ export default function Expertise({}: Props) {
 		>
 			<div className="flex-col">
 				<ScrollAnimation>
-					<div className="uppercase xl:text-sm text-xs font-medium opacity-60">/expertise</div>
+					<SubHeader text={'expertise'}></SubHeader>
 				</ScrollAnimation>
 				<ScrollAnimation>
 					<div className="w-[280px] h-[360px] mt-12">

@@ -1,6 +1,6 @@
 import React from 'react';
 import NavItem from './navItem/NavItem';
-import { navBarTabs } from '@/components/header/header.constants';
+import { navBarTabs } from '@/components/component.constants';
 
 type NavbarProps = {};
 

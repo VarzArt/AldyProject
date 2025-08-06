@@ -2,9 +2,7 @@
 
 import React from 'react';
 import { portfolioItemsConst } from './portfolio.constants';
-import PortfolioItem from '@/components/portfolioItem/PortfolioItem';
-import Heading from '@/components/ui/heading/Heading';
-import ScrollAnimation from '@/components/ui/scrollAnimation/ScrollAnimation';
+import { Heading, PortfolioItem, ScrollAnimation } from '@/components';
 
 type Props = {};
 
