@@ -8,7 +8,7 @@ export default function Navbar({}: NavbarProps) {
 	return (
 		<div className="flex gap-10 xl:gap-[48px]">
 			{navBarTabs.map((tab) => (
-				<NavItem key={tab.id} label={tab.label} />
+				<NavItem key={tab.id} label={tab.label} href={tab.href} />
 			))}
 		</div>
 	);

@@ -1,21 +1,104 @@
+'use client';
+
 import React from 'react';
+import { motion, useAnimation, useInView, UseInViewOptions } from 'framer-motion';
+import { useEffect, useState, useRef } from 'react';
 
 type InfoCardProps = {
 	number: number;
-	infoNumber: string;
+	duration?: number;
+	appearDelay?: number;
+	appearDuration?: number;
+	scrollOptions?: {
+		once?: boolean;
+		margin?: string;
+	};
+	info: {
+		number: number;
+		measure: string;
+	};
 	desc: string;
 };
 
-export default function InfoCard({ number, infoNumber, desc }: InfoCardProps) {
+export default function ScrollTriggeredCounter({
+	number,
+	desc,
+	info,
+	duration = 1.5,
+	scrollOptions = { once: true, margin: '0px 0px -50px 0px' },
+	appearDelay = 0.3,
+	appearDuration = 0.5,
+}: InfoCardProps) {
+	const controls = useAnimation();
+	const [count, setCount] = useState(0);
+	const [shouldAnimate, setShouldAnimate] = useState(false);
+	const ref = useRef(null);
+	const isInView = useInView(ref, scrollOptions as UseInViewOptions);
+	const animationRef = useRef<number | null>(null);
+
+	// Обработка появления элемента с задержкой
+	useEffect(() => {
+		if (!isInView) return;
+
+		const timer = setTimeout(() => {
+			setShouldAnimate(true);
+		}, appearDelay * 1000);
+
+		return () => clearTimeout(timer);
+	}, [isInView, appearDelay]);
+
+	useEffect(() => {
+		if (!shouldAnimate) return;
+
+		let start = 0;
+		const increment = info.number / (duration * 60);
+
+		const animate = () => {
+			start += increment;
+			if (start >= info.number) {
+				setCount(info.number);
+
+				controls.start({
+					scale: [1, 1.1, 1],
+					transition: { duration: 0.3 },
+				});
+				return;
+			}
+			setCount(Math.floor(start));
+			animationRef.current = requestAnimationFrame(animate);
+		};
+
+		animationRef.current = requestAnimationFrame(animate);
+
+		return () => {
+			if (animationRef.current) {
+				cancelAnimationFrame(animationRef.current);
+			}
+		};
+	}, [shouldAnimate, info.number, duration, controls]);
+
 	return (
-		<div className="px-8 xl:pt-6 pt-5 xl:pb-8 pb-5 bg-[#191919]/70 rounded-xl max-w-[550px] w-[32.8%] xl:h-[270px] h-[235px] flex flex-col justify-between items-start relative">
+		<motion.span
+			ref={ref}
+			initial={{ opacity: 0, y: 20 }}
+			animate={{
+				opacity: isInView ? 1 : 0,
+				y: isInView ? 0 : 20,
+				transition: {
+					duration: appearDuration,
+					delay: isInView ? appearDelay : 0,
+				},
+			}}
+			className="px-8 xl:pt-6 pt-5 xl:pb-8 pb-5 bg-[#191919]/70 rounded-xl max-w-[550px] xl:h-[270px] h-[235px] flex flex-col justify-between items-start relative"
+		>
 			<div className="opacity-40 font-medium xl:text-sm text-xs">/0{number}</div>
 			<div className="xl:text-[78px] text-[70px] font-bold absolute top-1/2 transform -translate-y-1/2">
-				{infoNumber}
+				{count}
+				{info.measure}
 			</div>
 			<div className="xl:text-[20px] text-base opacity-40 font-[300] xl:w-[195px] w-[170px] h-[45px] flex flex-col justify-center leading-[110%]">
 				{desc}
 			</div>
-		</div>
+		</motion.span>
 	);
 }

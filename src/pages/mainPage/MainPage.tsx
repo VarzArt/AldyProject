@@ -1,7 +1,10 @@
+'use client';
+
 import React from 'react';
 import { infoCardsConstants } from './mainPage.constants';
 import InfoCard from '@/components/infoCard/InfoCard';
 import Heading from '@/components/ui/heading/Heading';
+import ScrollAnimation from '@/components/ui/scrollAnimation/ScrollAnimation';
 
 type Props = {};
 
@@ -25,36 +28,62 @@ export default function MainPage({}: Props) {
 				stunning visual experiences <br /> that resonate with your audience.
 			</div>
 			<div className=" border-t border-t-gray-300/10 border-b border-b-gray-300/10 xl:py-15 py-12 w-full">
-				<div className="max-w-[1680] w-[100%] rounded-xl bg-(--pinkPrimary) xl:h-[700px] h-[560px]"></div>
+				<div className="max-w-[1680] w-[100%] xl:h-[700px] h-[560px]">
+					<video
+						height={'100%'}
+						width={'100%'}
+						controls={false}
+						autoPlay
+						loop
+						playsInline
+						muted
+						disablePictureInPicture
+						className="rounded-xl"
+					>
+						<source src="/video/mainVideo.mp4" type="video/mp4" />
+					</video>
+				</div>
 			</div>
 			<div className="xl:mt-[180px] mt-[140px] flex justify-center w-full">
 				<div className="w-[50%]">
-					<Heading
-						text="about our company"
-						className="uppercase font-extrabold text-[54px] xl:text-[64px] w-[510px] leading-[110%] xl:mt-15 mt-12"
-					></Heading>
+					<ScrollAnimation>
+						<Heading
+							text="about our company"
+							className="uppercase font-extrabold text-[54px] xl:text-[64px] w-[510px] leading-[110%] xl:mt-15 mt-12"
+						></Heading>
+					</ScrollAnimation>
 				</div>
-				<div className="w-[50%] flex flex-col xl:gap-[80px] gap-15">
+				<div className="w-[50%] flex flex-col xl:gap-[80px] gap-15" id="about">
 					<div className="flex flex-col xl:gap-[28px] gap-[20px]">
-						<div className="opacity-40 uppercase xl:text-sm text-xs">Who we are?</div>
-						<div className="xl:text-[32px] text-[26px] font-medium leading-[140%]">
-							We are a design studio specializing in website development and branding. Our team of talented designers
-							and developers creates unique visual solutions that reflect the individuality of each client.
-						</div>
+						<ScrollAnimation>
+							<div className="opacity-40 uppercase xl:text-sm text-xs">Who we are?</div>
+						</ScrollAnimation>
+						<ScrollAnimation>
+							<div className="xl:text-[32px] text-[26px] font-medium leading-[140%]">
+								We are a design studio specializing in website development and branding. Our team of talented designers
+								and developers creates unique visual solutions that reflect the individuality of each client.
+							</div>
+						</ScrollAnimation>
 					</div>
 					<div className="flex flex-col xl:gap-[28px] gap-[20px]">
-						<div className="opacity-40 uppercase xl:text-sm text-xs">How we help?</div>
-						<div className="xl:text-[32px] text-[26px] font-medium leading-[140%]">
-							We help companies stand out and communicate effectively with the audience. We develop functional websites
-							and vivid visual identities that contribute to the growth of trust and loyalty to your brand. Our goal is
-							to make your business more visible and successful in the digital space.
-						</div>
+						<ScrollAnimation>
+							<div className="opacity-40 uppercase xl:text-sm text-xs">How we help?</div>
+						</ScrollAnimation>
+						<ScrollAnimation>
+							<div className="xl:text-[32px] text-[26px] font-medium leading-[140%]">
+								We help companies stand out and communicate effectively with the audience. We develop functional
+								websites and vivid visual identities that contribute to the growth of trust and loyalty to your brand.
+								Our goal is to make your business more visible and successful in the digital space.
+							</div>
+						</ScrollAnimation>
 					</div>
 				</div>
 			</div>
 			<div className="xl:pt-[140px] pt-[100px] flex justify-between items-center w-full font-[Satoshi]">
-				{infoCardsConstants.map((infoCard) => (
-					<InfoCard number={infoCard.id} infoNumber={infoCard.info} desc={infoCard.desc} key={infoCard.id}></InfoCard>
+				{infoCardsConstants.map((infoCard, index) => (
+					<div key={infoCard.id} className="w-[32.8%]">
+						<InfoCard number={infoCard.id} info={infoCard.info} desc={infoCard.desc} appearDelay={index * 0.3} />
+					</div>
 				))}
 			</div>
 		</section>

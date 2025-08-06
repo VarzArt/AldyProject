@@ -5,6 +5,7 @@ import React, { useState, useRef } from 'react';
 import Image from 'next/image';
 import arrow from '@/assets/images/arrow.png';
 import FormUi from '@/components/ui/form/FormUi';
+import ScrollAnimation from '@/components/ui/scrollAnimation/ScrollAnimation';
 
 type Props = {};
 
@@ -40,10 +41,12 @@ export default function Brief({}: Props) {
 	return (
 		<section className="xl:pt-[160px] pt-[120px] xl:pb-[236px] pb-[216px] xl:px-[120px] px-[100px] bg-(--backPrimary) rounded-t-[56px] mt-[-56px] overflow-hidden relative font-[Satoshi] flex justify-center">
 			<div className="w-[50%]">
-				<Heading
-					text="please tell us about your project"
-					className="xl:text-[64px] text-[54px] font-black uppercase text-white leading-[110%] w-[80%]"
-				></Heading>
+				<ScrollAnimation>
+					<Heading
+						text="please tell us about your project"
+						className="xl:text-[64px] text-[54px] font-black uppercase text-white leading-[110%] w-[80%]"
+					></Heading>
+				</ScrollAnimation>
 			</div>
 			<div className="z-10 relative w-[50%]">
 				<FormUi></FormUi>
@@ -55,14 +58,16 @@ export default function Brief({}: Props) {
 				onMouseMove={handleMouseMove}
 				onMouseLeave={handleMouseLeave}
 			>
-				<Image
-					src={arrow}
-					alt="pink bubble arrow picture"
-					className="transition-transform duration-300 ease-out w-full h-[65%]"
-					style={{
-						transform: `translate(${position.x}px, ${position.y}px)`,
-					}}
-				/>
+				<ScrollAnimation>
+					<Image
+						src={arrow}
+						alt="pink bubble arrow picture"
+						className="transition-transform duration-300 ease-out w-full h-[65%]"
+						style={{
+							transform: `translate(${position.x}px, ${position.y}px)`,
+						}}
+					/>
+				</ScrollAnimation>
 			</div>
 		</section>
 	);
