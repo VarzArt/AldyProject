@@ -1,12 +1,13 @@
 import React, { ButtonHTMLAttributes } from 'react';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-	variant: 'primary' | 'secondary' | 'subPrimary' | 'subSecondary';
+	variant: 'primary' | 'secondary' | 'subPrimary' | 'subSecondary' | 'subPrimaryHover';
 }
 
 type Variants = {
 	primary: string;
 	subPrimary: string;
+	subPrimaryHover: string;
 	secondary: string;
 	subSecondary: string;
 };
@@ -19,6 +20,8 @@ export default function ButtonUi({ children, variant = 'primary', className = ''
 		primary: 'border border-(--pinkPrimary) hover:bg-(--pinkPrimary) px-[28px] py-[11px]',
 		subPrimary:
 			'border border-(--backPrimary) hover:bg-(--pinkPrimary) hover:border-transparent xl:px-[33px] px-[36px] xl:py-[22px] py-5',
+		subPrimaryHover:
+			'border border-(--backPrimary) hover:bg-(--backSecondary) hover:border-transparent xl:px-[33px] px-[36px] xl:py-[22px] py-5',
 		secondary:
 			'bg-(--pinkPrimary) text-black hover:bg-(--backPrimary) hover:text-white xl:px-[42px] px-[36px] xl:py-[24px] py-5',
 		subSecondary: 'bg-(--pinkPrimary) text-black hover:bg-(--backSecondary) px-[41px] py-[24px]',

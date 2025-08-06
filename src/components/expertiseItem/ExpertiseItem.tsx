@@ -9,7 +9,7 @@ type ExpertiseItemProps = {
 
 export default function ExpertiseItem({ number, name, qualities }: ExpertiseItemProps) {
 	return (
-		<div className="w-full border-b-cyan-50/10 border-b flex justify-start py-10 first:pt-0">
+		<div className=" flex justify-start">
 			<div className="xl:text-sm text-xs font-medium opacity-60 pr-[24%]">/0{number}</div>
 			<div>
 				<Heading className="font-black xl:text-[64px] text-[54px] uppercase leading-[80%]" text={name}></Heading>

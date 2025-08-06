@@ -6,6 +6,7 @@ import { InputTextUi } from '../inputText/InputTextUi';
 import { InputTextareaUi } from '../textarea/InputTextareaUi';
 import SubHeader from '../subheader/SubHeader';
 import ButtonUi from '../button/ButtonUi';
+import ScrollAnimation from '../scrollAnimation/ScrollAnimation';
 
 type Props = {};
 
@@ -61,7 +62,7 @@ const budjetItems = [
 ];
 
 export default function FormUi({}: Props) {
-	const handleChange = (selectedItem: string) => {
+	const handleChange = (selectedItem: string | string[]) => {
 		console.log(selectedItem);
 	};
 
@@ -78,30 +79,42 @@ export default function FormUi({}: Props) {
 	return (
 		<form className="w-full">
 			<div className="w-[620px] flex flex-col xl:gap-8 gap-6 xl:mb-[60px] mb-[45px]">
-				<SubHeader text="service"></SubHeader>
-				<ChipsUi items={items} onChange={handleChange} defaultSelected="webdesign"></ChipsUi>
+				<ScrollAnimation>
+					<SubHeader text="service"></SubHeader>
+				</ScrollAnimation>
+				<ChipsUi items={items} onChange={handleChange} defaultSelected={['webdesign']} multiselect></ChipsUi>
 			</div>
 			<div className="w-[640px] flex flex-col xl:gap-8 gap-6 xl:mb-[60px] mb-[30px]">
-				<SubHeader text="Budget in USD"></SubHeader>
+				<ScrollAnimation>
+					<SubHeader text="Budget in USD"></SubHeader>
+				</ScrollAnimation>
 				<ChipsUi items={budjetItems} onChange={handleChange} defaultSelected="1-5"></ChipsUi>
 			</div>
 			<div className="flex flex-col xl:gap-3 gap-0 xl:mb-[40px] mb-[20px]">
-				<InputTextUi id="name" label="Name" value={formData.name} onChange={handleChangeInput('name')}></InputTextUi>
-				<InputTextUi
-					id="email"
-					label="Email"
-					value={formData.email}
-					onChange={handleChangeInput('email')}
-				></InputTextUi>
-				<InputTextareaUi
-					id="details"
-					label="Project details"
-					value={formData.projectDetails}
-					onChange={handleChangeInput('projectDetails')}
-					rows={3}
-				></InputTextareaUi>
+				<ScrollAnimation>
+					<InputTextUi id="name" label="Name" value={formData.name} onChange={handleChangeInput('name')}></InputTextUi>
+				</ScrollAnimation>
+				<ScrollAnimation>
+					<InputTextUi
+						id="email"
+						label="Email"
+						value={formData.email}
+						onChange={handleChangeInput('email')}
+					></InputTextUi>
+				</ScrollAnimation>
+				<ScrollAnimation>
+					<InputTextareaUi
+						id="details"
+						label="Project details"
+						value={formData.projectDetails}
+						onChange={handleChangeInput('projectDetails')}
+						rows={3}
+					></InputTextareaUi>
+				</ScrollAnimation>
 			</div>
-			<ButtonUi variant={'subSecondary'}>discuss project</ButtonUi>
+			<ScrollAnimation>
+				<ButtonUi variant={'subSecondary'}>discuss project</ButtonUi>
+			</ScrollAnimation>
 		</form>
 	);
 }
