@@ -51,7 +51,7 @@ export default function Footer({}: Props) {
 							? 'xl:scale-[200] sm:scale-[150] scale-[75] opacity-0'
 							: 'scale-0 opacity-0'
 					}
-				sm:right-[7%] sm:bottom-[14.5%] right-4 bottom-[100px] z-[1] pointer-events-none will-change-transform transform-gpu`}
+				sm:right-[80px] lg:right-[100px] xl:right-[120px] sm:bottom-[14.5%] right-4 bottom-[100px] z-[1] pointer-events-none will-change-transform transform-gpu`}
 					style={{
 						transformOrigin: 'center',
 						width: '40px',
