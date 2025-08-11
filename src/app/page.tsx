@@ -1,10 +1,10 @@
 import '@/app/globals.css';
 
-import { Breif } from '@/pages/breif';
-import { Expertise } from '@/pages/expertise';
-import { MainPage } from '@/pages/mainPage';
-import { Portfolio } from '@/pages/portfolio';
-import { Services } from '@/pages/services';
+import { Breif } from '@/components/pages/breif';
+import { Expertise } from '@/components/pages/expertise';
+import { MainPage } from '@/components/pages/mainPage';
+import { Portfolio } from '@/components/pages/portfolio';
+import { Services } from '@/components/pages/services';
 
 export default function Home() {
 	return (
