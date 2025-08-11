@@ -9,15 +9,22 @@ type ExpertiseItemProps = {
 
 export default function ExpertiseItem({ number, name, qualities }: ExpertiseItemProps) {
 	return (
-		<div className=" flex justify-start">
-			<div className="xl:text-sm text-xs font-medium opacity-60 pr-[24%]">/0{number}</div>
+		<div className="flex justify-start">
+			<div className="xl:text-sm sm:text-xs text-[10px] mt-1 sm:mt-0 font-medium opacity-60 sm:pr-[24%] pr-5">
+				/0{number}
+			</div>
 			<div>
-				<Heading className="font-black xl:text-[64px] text-[54px] uppercase leading-[80%]" text={name}></Heading>
-				<div className="pt-5 flex items-center gap-[13px] opacity-60 text-xs font-medium uppercase">
+				<Heading
+					className="font-black xl:text-[64px] lg:text-[54px] sm:text-[42px] text-[32px] uppercase sm:leading-[80%] leading-[110%]"
+					text={name}
+				></Heading>
+				<div className="pt-5 flex items-center gap-[13px] opacity-60 sm:text-xs text-[13px] font-medium uppercase flex-wrap leading-[10px]">
 					{qualities.map((item, index) => (
-						<div key={index} className="flex items-center">
+						<div key={index} className="flex sm:items-center items-center w-max">
 							{item}
-							{index < qualities.length - 1 && <div className="ml-[13px] w-1.5 h-1.5 rounded-full bg-white"></div>}
+							{index < qualities.length - 1 && (
+								<div className="ml-[13px] sm:w-1.5 w-1 sm:h-1.5 h-1 rounded-full bg-white"></div>
+							)}
 						</div>
 					))}
 				</div>

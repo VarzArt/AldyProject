@@ -11,7 +11,7 @@ export default function Heading({ text, className }: HeadingProps) {
 		const char = text[i];
 		if (char === 'O' || char === 'o') {
 			result.push(
-				<span key={i} className={`font-[Bosca] ${className}`}>
+				<span key={i} className={`font-[Bosca] font-black italic ${className}`}>
 					{char}
 				</span>
 			);

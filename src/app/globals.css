@@ -2,7 +2,8 @@
 
 @theme {
 	--breakpoint-xl: 92rem;
-
+	--breakpoint-lg: 65rem;
+	--breakpoint-2xl: 120rem;
 	--animate-bounce: bounce 0.75s infinite;
 }
 
@@ -29,20 +30,29 @@
 
 @font-face {
 	font-family: 'Satoshi';
-	src: url('/fonts/Satoshi-Variable.woff2') format('woff2');
-	font-weight: 500;
+	src: url('/fonts/Satoshi-Variable.woff2') format('woff2-variations'),
+		url('/fonts/Satoshi-Variable.woff2') format('woff2');
+	font-weight: 300 700;
 	font-style: normal;
 	font-display: swap;
+	font-synthesis-weight: none;
+	font-synthesis-style: none;
+	font-feature-settings: 'kern' 1, 'liga' 1;
 }
+
 @font-face {
 	font-family: 'Bosca';
-	src: url('/fonts/Boska-BlackItalic.woff2') format('woff2');
+	src: url('/fonts/Boska-VariableItalic.woff2') format('woff2'), url('/fonts/Boska-BlackItalic.otf') format('opentype');
 	font-weight: 900;
 	font-style: italic;
 	font-display: swap;
+	font-synthesis: none;
 }
 
 html {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-rendering: optimizeLegibility;
 	width: 100%;
 	height: 100%;
 	scroll-behavior: smooth;

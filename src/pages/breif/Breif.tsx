@@ -3,7 +3,7 @@
 import React, { useState, useRef } from 'react';
 import Image from 'next/image';
 import arrow from '@/assets/images/arrow.png';
-import { FormUi, Heading, ScrollAnimation } from '@/components';
+import { Container, FormUi, Heading, ScrollAnimation } from '@/components';
 
 type Props = {};
 
@@ -37,36 +37,38 @@ export default function Brief({}: Props) {
 	};
 
 	return (
-		<section className="xl:pt-[160px] pt-[120px] xl:pb-[236px] pb-[216px] xl:px-[120px] px-[100px] bg-(--backPrimary) rounded-t-[56px] mt-[-56px] overflow-hidden relative font-[Satoshi] flex justify-center">
-			<div className="w-[50%]">
-				<ScrollAnimation>
-					<Heading
-						text="please tell us about your project"
-						className="xl:text-[64px] text-[54px] font-black uppercase text-white leading-[110%] w-[80%]"
-					></Heading>
-				</ScrollAnimation>
-			</div>
-			<div className="z-10 relative w-[50%]">
-				<FormUi></FormUi>
-			</div>
+		<section className=" bg-(--backPrimary) rounded-t-[24px] sm:rounded-t-[56px] overflow-hidden font-[Satoshi] flex justify-center mt-[-24px] sm:mt-[-56px]">
+			<Container className="relative flex sm:flex-row flex-col justify-center xl:pt-[160px] lg:pt-[120px] sm:pt-[80px] pt-15 xl:pb-[236px] lg:pb-[216px] sm:pb-[176px] pb-[104px] xl:px-[120px] lg:px-[100px] sm:px-[80px] px-5">
+				<div className="sm:w-[50%] w-full h-[600px] sm:h-unset">
+					<ScrollAnimation>
+						<Heading
+							text="please tell us about your project"
+							className="xl:text-[64px] lg:text-[54px] sm:text-[42px] text-[36px] font-black uppercase text-white leading-[110%] w-[80%]"
+						></Heading>
+					</ScrollAnimation>
+				</div>
+				<div className="z-10 relative sm:w-[50%] w-full">
+					<FormUi></FormUi>
+				</div>
 
-			<div
-				ref={arrowRef}
-				className="absolute xl:-left-40 -left-35 xl:top-[330px] top-[267.5px] z-0 w-[50%] xl:h-[1161px] h-[1000px] cursor-pointer"
-				onMouseMove={handleMouseMove}
-				onMouseLeave={handleMouseLeave}
-			>
-				<ScrollAnimation>
-					<Image
-						src={arrow}
-						alt="pink bubble arrow picture"
-						className="transition-transform duration-300 ease-out w-full h-[65%]"
-						style={{
-							transform: `translate(${position.x}px, ${position.y}px)`,
-						}}
-					/>
-				</ScrollAnimation>
-			</div>
+				<div
+					ref={arrowRef}
+					className="absolute xl:-left-40 sm:-left-35 right-[35px] xl:top-[330px] lg:top-[267.5px] sm:top-[235px] top-[155px] z-0 sm:w-[50%] w-[500px] xl:h-[1161px] h-[1000px] cursor-pointer"
+					onMouseMove={handleMouseMove}
+					onMouseLeave={handleMouseLeave}
+				>
+					<ScrollAnimation>
+						<Image
+							src={arrow}
+							alt="pink bubble arrow picture"
+							className="transition-transform duration-300 ease-out sm:w-full sm:h-[65%] w-[600px] h-[500px]"
+							style={{
+								transform: `translate(${position.x}px, ${position.y}px)`,
+							}}
+						/>
+					</ScrollAnimation>
+				</div>
+			</Container>
 		</section>
 	);
 }
