@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import React from 'react';
 import Image, { StaticImageData } from 'next/image';
+import { useIsDesktop } from '@/hooks/useIsDesktop';
 
 type PortfolioItemProps = {
 	name: string;
@@ -12,13 +13,15 @@ type PortfolioItemProps = {
 };
 
 export default function PortfolioItem({ name, type, year, src }: PortfolioItemProps) {
+	const isDesktop = useIsDesktop();
+
 	return (
 		<div>
 			<motion.div
 				initial={{ opacity: 0, scale: 0.95 }}
 				animate={{ opacity: 1, scale: 1 }}
 				transition={{ duration: 0.7 }}
-				className="w-full xl:h-[540px] h-[480px] overflow-hidden"
+				className="w-full xl:h-[540px] lg:h-[480px] sm:h-[420px] overflow-hidden rounded-xl"
 			>
 				<Image
 					src={src}
@@ -32,11 +35,11 @@ export default function PortfolioItem({ name, type, year, src }: PortfolioItemPr
 				transition={{ duration: 0.5, delay: 0.3 }}
 				className="flex justify-between items-center xl:pt-4 pt-2 relative"
 			>
-				<div className="font-medium xl:text-sm text-xs uppercase">{name}</div>
-				<div className="font-medium xl:text-base text-sm opacity-40 absolute left-1/2 transform -translate-x-1/2 -bottom-[2px]">
+				<div className="font-medium xl:text-sm lg:text-xs sm:text-[10px] text-[14px] uppercase">{name}</div>
+				<div className="font-medium xl:text-base lg:text-sm sm:text-xs text-[14px] opacity-40 sm:absolute sm:left-1/2 sm:transform sm:-translate-x-1/2 lg:-bottom-[2px] sm:-bottom-[0]">
 					{type}
 				</div>
-				<div className="font-medium xl:text-sm text-xs opacity-40">{year}</div>
+				<div className="font-medium xl:text-sm lg:text-xs text-[10px] opacity-40 sm:block hidden">{year}</div>
 			</motion.div>
 		</div>
 	);

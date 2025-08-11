@@ -63,7 +63,7 @@ const ChipsUi: FC<ChipsRadioProps> = ({
 						type="button"
 						onClick={() => handleSelect(item.value)}
 						className={`
-              px-[28px] xl:py-[11px] py-[9px] rounded-full border transition-all xl:text-[19px] text-[18px]
+              lg:px-[28px] sm:px-5 px-[24px] xl:py-[11px] sm:py-[9px] py-[13px] rounded-full border transition-all xl:text-[19px] lg:text-[18px] sm:text-base text-[18px]
               ${
 								isSelected(item.value)
 									? 'bg-(--pinkPrimary) text-white border-transparent'

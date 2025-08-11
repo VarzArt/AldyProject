@@ -78,19 +78,19 @@ export default function FormUi({}: Props) {
 
 	return (
 		<form className="w-full">
-			<div className="w-[620px] flex flex-col xl:gap-8 gap-6 xl:mb-[60px] mb-[45px]">
+			<div className="lg:w-[620px] sm:w-[450px] w-full flex flex-col xl:gap-8 sm:gap-6 gap-[22px] xl:mb-[60px] lg:mb-[45px] sm:mb-[30px] mb-10">
 				<ScrollAnimation>
 					<SubHeader text="service"></SubHeader>
 				</ScrollAnimation>
 				<ChipsUi items={items} onChange={handleChange} defaultSelected={['webdesign']} multiselect></ChipsUi>
 			</div>
-			<div className="w-[640px] flex flex-col xl:gap-8 gap-6 xl:mb-[60px] mb-[30px]">
+			<div className="lg:w-[640px] sm:w-[450px] w-full flex flex-col xl:gap-8 sm:gap-6 gap-[22px] xl:mb-[60px] sm:mb-[30px] mb-9">
 				<ScrollAnimation>
 					<SubHeader text="Budget in USD"></SubHeader>
 				</ScrollAnimation>
 				<ChipsUi items={budjetItems} onChange={handleChange} defaultSelected="1-5"></ChipsUi>
 			</div>
-			<div className="flex flex-col xl:gap-3 gap-0 xl:mb-[40px] mb-[20px]">
+			<div className="flex flex-col xl:gap-3 gap-0 xl:mb-[40px] sm:mb-[20px] mb-7 w-full sm:w-unset">
 				<ScrollAnimation>
 					<InputTextUi id="name" label="Name" value={formData.name} onChange={handleChangeInput('name')}></InputTextUi>
 				</ScrollAnimation>

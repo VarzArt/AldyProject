@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion, useAnimation, useInView, UseInViewOptions } from 'framer-motion';
 import { useEffect, useState, useRef } from 'react';
+import { useIsDesktop } from '@/hooks/useIsDesktop';
 
 type InfoCardProps = {
 	number: number;
@@ -29,6 +30,7 @@ export default function ScrollTriggeredCounter({
 	appearDelay = 0.3,
 	appearDuration = 0.5,
 }: InfoCardProps) {
+	const isDesktop = useIsDesktop();
 	const controls = useAnimation();
 	const [count, setCount] = useState(0);
 	const [shouldAnimate, setShouldAnimate] = useState(false);
@@ -36,16 +38,18 @@ export default function ScrollTriggeredCounter({
 	const isInView = useInView(ref, scrollOptions as UseInViewOptions);
 	const animationRef = useRef<number | null>(null);
 
+	const effectiveDelay = isDesktop ? appearDelay : 0;
+
 	// Обработка появления элемента с задержкой
 	useEffect(() => {
 		if (!isInView) return;
 
 		const timer = setTimeout(() => {
 			setShouldAnimate(true);
-		}, appearDelay * 1000);
+		}, effectiveDelay * 1000);
 
 		return () => clearTimeout(timer);
-	}, [isInView, appearDelay]);
+	}, [isInView, effectiveDelay]);
 
 	useEffect(() => {
 		if (!shouldAnimate) return;
@@ -86,13 +90,13 @@ export default function ScrollTriggeredCounter({
 				y: isInView ? 0 : 20,
 				transition: {
 					duration: appearDuration,
-					delay: isInView ? appearDelay : 0,
+					delay: isInView ? effectiveDelay : 0,
 				},
 			}}
-			className="px-8 xl:pt-6 pt-5 xl:pb-8 pb-5 bg-[#191919]/70 rounded-xl max-w-[550px] xl:h-[270px] h-[235px] flex flex-col justify-between items-start relative"
+			className="lg:px-8 px-5 xl:pt-6 lg:pt-5 pt-4 xl:pb-8 lg:pb-5 pb-3 bg-[#191919]/70 rounded-xl xl:h-[270px] lg:h-[235px] h-[213px] flex flex-col justify-between items-start relative"
 		>
-			<div className="opacity-40 font-medium xl:text-sm text-xs">/0{number}</div>
-			<div className="xl:text-[78px] text-[70px] font-bold absolute top-1/2 transform -translate-y-1/2">
+			<div className="opacity-40 font-medium xl:text-sm sm:text-xs text-[10px]">/0{number}</div>
+			<div className="xl:text-[78px] lg:text-[70px] sm:text-[56px] text-[68px] font-bold absolute top-1/2 transform -translate-y-1/2">
 				{count}
 				{info.measure}
 			</div>

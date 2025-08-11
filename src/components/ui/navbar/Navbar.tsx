@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import NavItem from './navItem/NavItem';
 import { navBarTabs } from '@/components/component.constants';
@@ -6,7 +8,7 @@ type NavbarProps = {};
 
 export default function Navbar({}: NavbarProps) {
 	return (
-		<div className="flex gap-10 xl:gap-[48px]">
+		<div className="flex gap-6 lg:gap-10 xl:gap-[48px]">
 			{navBarTabs.map((tab) => (
 				<NavItem key={tab.id} label={tab.label} href={tab.href} />
 			))}

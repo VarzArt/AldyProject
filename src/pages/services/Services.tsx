@@ -1,42 +1,53 @@
+'use client';
+
 import React from 'react';
 import { servicesConsts } from './services.constants';
-import { ButtonUi, ScrollAnimation, ServiceItem } from '@/components';
+import { ButtonUi, Container, ScrollAnimation, ServiceItem } from '@/components';
 
 type Props = {};
 
 export default function Services({}: Props) {
 	return (
 		<section
-			className="xl:pt-[180px] pt-[120px] xl:pb-[236px] pb-[216px] xl:px-[120px] px-[100px] bg-(--backSecondary) rounded-t-[56px] mt-[-56px]"
+			className=" bg-(--backSecondary) sm:rounded-t-[56px] rounded-t-[24px] flex justify-center sm:mt-[-56px] mt-[-24px]"
 			id="services"
 		>
-			<div className="flex justify-between items-start">
-				<ScrollAnimation>
-					<ButtonUi variant="secondary">Become a client</ButtonUi>
-				</ScrollAnimation>
-				<ScrollAnimation delay={1} className="w-[67%]">
-					<div className=" xl:text-3xl text-2xl font-medium text-black">
-						<span className="xl:text-sm text-xs opacity-60 uppercase mr-[17%] align-top">/services</span> In our design
-						studio, we adhere to a comprehensive approach to each project based on a deep understanding of your needs
-						and goals. We believe that a successful project is the result of close cooperation, so we actively involve
-						you at every stage, ensuring transparency and openness in your work.
-					</div>
-				</ScrollAnimation>
-			</div>
-			<div className="xl:pt-[140px] pt-[100px]">
-				<ScrollAnimation>
-					<div className="uppercase xl:text-sm text-xs font-medium text-(--pinkSecondary) opacity-60">
-						You can be here now
-					</div>
-				</ScrollAnimation>
-				<div className="mt-6 border-t border-t-cyan-950/10 w-full pt-9 flex justify-between items-start xl:gap-10 gap-8">
-					{servicesConsts.map((item, index) => (
-						<ScrollAnimation key={item.id} delay={index * 0.5} className="w-[22.5%]">
-							<ServiceItem name={item.name} desc={item.desc} isUserHere={item.isUserHere} />
-						</ScrollAnimation>
-					))}
+			<Container className="xl:pt-[180px] lg:pt-[120px] sm:pt-[80px] pt-15 xl:pb-[236px] lg:pb-[216px] sm:pb-[176px] pb-[104px] xl:px-[120px] lg:px-[100px] sm:px-[80px] px-5">
+				<div className="flex justify-between items-start sm:flex-row flex-col-reverse">
+					<ScrollAnimation>
+						<ButtonUi variant={'secondary'} className="sm:inline-flex hidden">
+							Become a client
+						</ButtonUi>
+						<ButtonUi variant={'mobilePrimary'} className="sm:hidden inline-flex">
+							Become a client
+						</ButtonUi>
+					</ScrollAnimation>
+					<ScrollAnimation delay={1} className="sm:w-[67%] w-full">
+						<div className=" xl:text-3xl lg:text-2xl text-xl font-medium text-black flex flex-col sm:block mb-10 sm:mb-0">
+							<span className="xl:text-sm text-xs opacity-60 uppercase lg:mr-[17%] sm:mr-[13.5%] mb-4 sm:mb-0 align-top">
+								/services
+							</span>{' '}
+							In our design studio, we adhere to a comprehensive approach to each project based on a deep understanding
+							of your needs and goals. We believe that a successful project is the result of close cooperation, so we
+							actively involve you at every stage, ensuring transparency and openness in your work.
+						</div>
+					</ScrollAnimation>
 				</div>
-			</div>
+				<div className="xl:pt-[140px] sm:pt-[100px] pt-[80px]">
+					<ScrollAnimation>
+						<div className="uppercase xl:text-sm text-xs font-medium text-(--pinkSecondary) opacity-60 ml-10 sm:ml-0">
+							You can be here now
+						</div>
+					</ScrollAnimation>
+					<div className="sm:mt-6 mt-3 sm:border-t sm:border-l-0 border-l border-l-cyan-950/10 sm:border-t-cyan-950/10 w-full sm:pt-9 pt-0 flex sm:flex-row flex-col justify-between items-start xl:gap-10 sm:gap-8 gap-10">
+						{servicesConsts.map((item, index) => (
+							<ScrollAnimation key={item.id} delay={index * 0.5} className="sm:w-[22.5%] w-[80%] sm:ml-0 ml-10">
+								<ServiceItem name={item.name} desc={item.desc} isUserHere={item.isUserHere} />
+							</ScrollAnimation>
+						))}
+					</div>
+				</div>
+			</Container>
 		</section>
 	);
 }

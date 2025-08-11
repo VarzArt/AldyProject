@@ -12,7 +12,7 @@ type FooterColProps = {
 
 export default function FooterCol({ name, tabs, color }: FooterColProps) {
 	return (
-		<div className="flex flex-col items-start xl:gap-10 gap-6">
+		<div className="flex flex-col items-start xl:gap-10 sm:gap-6 gap-3">
 			<ScrollAnimation>
 				<SubHeader text={name}></SubHeader>
 			</ScrollAnimation>
@@ -20,7 +20,7 @@ export default function FooterCol({ name, tabs, color }: FooterColProps) {
 				{tabs.map((tab) => (
 					<ScrollAnimation key={tab.id}>
 						<div
-							className={`text-xl font-medium ${
+							className={`lg:text-xl sm:text-base text-xl font-medium ${
 								color === 'pink' ? 'hover:text-(--pinkPrimary)' : 'hover:text-(--backSecondary)'
 							} duration-150 ease-in-out cursor-pointer`}
 						>

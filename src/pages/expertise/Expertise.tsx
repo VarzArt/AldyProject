@@ -1,50 +1,52 @@
 import React from 'react';
 import { expertiseConsts } from './expertise.constants';
-import { ExpertiseItem, ScrollAnimation, SubHeader } from '@/components';
+import { Container, ExpertiseItem, ScrollAnimation, SubHeader } from '@/components';
 
 type Props = {};
 
 export default function Expertise({}: Props) {
 	return (
 		<section
-			className="bg-(--backPrimary) pt-[160px] xl:pb-[236px] pb-[216px] xl:px-[120px] px-[100px] rounded-t-[56px] mt-[-56px] flex justify-between font-[Satoshi]"
+			className="bg-(--backPrimary) sm:rounded-t-[56px] rounded-t-[24px] flex justify-center font-[Satoshi] sm:mt-[-56px] mt-[-24px]"
 			id="expertise"
 		>
-			<div className="flex-col">
-				<ScrollAnimation>
-					<SubHeader text={'expertise'}></SubHeader>
-				</ScrollAnimation>
-				<ScrollAnimation>
-					<div className="w-[280px] h-[360px] mt-12">
-						<video
-							height={'100%'}
-							width={'100%'}
-							controls={false}
-							autoPlay
-							loop
-							playsInline
-							muted
-							disablePictureInPicture
-							className="rounded-xl"
-						>
-							<source src="/video/expertise.mp4" type="video/mp4" />
-						</video>
-					</div>
-				</ScrollAnimation>
-			</div>
-			<div className="w-[67%] flex-col justify-center">
-				{expertiseConsts.map((item, index) => (
-					<ScrollAnimation key={item.id} className="py-10 first:pt-0 w-full border-b-cyan-50/10 border-b">
-						<ExpertiseItem name={item.name} number={item.id} qualities={item.qualities} />
+			<Container className="lg:pt-[160px] sm:pt-[80px] pt-15 xl:pb-[236px] lg:pb-[216px] sm:pb-[176px] pb-[104px] xl:px-[120px] lg:px-[100px] sm:px-[80px] px-5 flex sm:flex-row flex-col justify-between">
+				<div className="flex-col">
+					<ScrollAnimation>
+						<SubHeader text={'expertise'}></SubHeader>
 					</ScrollAnimation>
-				))}
-				<ScrollAnimation>
-					<div className="xl:text-xl text-[18px] font-normal opacity-80 mt-[86px] xl:w-[53%] w-[59%] justify-self-start ml-[26%]">
-						We are a creative design studio dedicated to transforming ideas into stunning visual experiences. We are a
-						creative design studio dedicated to transforming ideas into stunning visual experiences.
-					</div>
-				</ScrollAnimation>
-			</div>
+					<ScrollAnimation>
+						<div className="lg:w-[280px] sm:w-[240px] w-full lg:h-[360px] sm:h-[320px] sm:mt-12 mt-5">
+							<video
+								height={'100%'}
+								width={'100%'}
+								controls={false}
+								autoPlay
+								loop
+								playsInline
+								muted
+								disablePictureInPicture
+								className="rounded-xl"
+							>
+								<source src="/video/expertise.mp4" type="video/mp4" />
+							</video>
+						</div>
+					</ScrollAnimation>
+				</div>
+				<div className="sm:w-[67%] w-full flex-col justify-center mt-10 sm:mt-0">
+					{expertiseConsts.map((item, index) => (
+						<ScrollAnimation key={item.id} className="lg:py-10 py-7 first:pt-0 w-full border-b-cyan-50/10 border-b">
+							<ExpertiseItem name={item.name} number={item.id} qualities={item.qualities} />
+						</ScrollAnimation>
+					))}
+					<ScrollAnimation>
+						<div className="xl:text-xl lg:text-[18px] text-base font-normal opacity-80 lg:mt-[86px] mt-[60px] xl:w-[53%] sm:w-[59%] w-full justify-self-start sm:ml-[26%]">
+							We transform ideas into vibrant digital projects — from branding to creating modern websites. Combining
+							creativity and technology, we create solutions that enhance your brand and deliver results.
+						</div>
+					</ScrollAnimation>
+				</div>
+			</Container>
 		</section>
 	);
 }

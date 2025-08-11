@@ -1,20 +1,30 @@
+'use client';
+
 import React from 'react';
-import Navbar from '../ui/navbar/Navbar';
 import Image from 'next/image';
 import logo from '@/assets/images/LogoMain.png';
-import ButtonUi from '../ui/button/ButtonUi';
+import { ButtonUi, MobileMenu, Navbar } from '@/components/ui';
+import { useIsDesktop } from '@/hooks/useIsDesktop';
 
 type Props = {
 	className?: string;
 };
 
 export default function Header({ className }: Props) {
+	const isDesktop = useIsDesktop();
+
 	return (
-		<div className="xl:px-[120px] px-[100px] xl:pt-9 xl:pb-9 pt-8 pb-8 flex justify-between items-center" id="main">
+		<div className="xl:px-[120px] sm:px-[100px] px-5 xl:py-9 sm:py-8 py-5 flex justify-between items-center" id="main">
 			<Image src={logo} alt={'mainLogo'} className="xl:w-[86px] xl:h-[22px] w-[80px] h-[20px]"></Image>
-			<div className="flex justify-between items-center gap-[60px]">
-				<Navbar />
+			<div className="flex justify-between items-center lg:gap-[60px] sm:gap-10 gap-5">
+				<div className="lg:block hidden">
+					<Navbar />
+				</div>
+
 				<ButtonUi variant="primary">Let's talk</ButtonUi>
+				<div className="lg:hidden">
+					<MobileMenu />
+				</div>
 			</div>
 		</div>
 	);
