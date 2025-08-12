@@ -31,7 +31,7 @@ export default function Portfolio({}: Props) {
 						</ScrollAnimation>
 					))}
 					<ScrollAnimation delay={portfolioItemsConst.length * 0.5}>
-						<div className="xl:mt-[280px] lg:mt-[240px] sm:mt-[210px] mt-10 xl:text-xl lg:text-[18px] text-base font-medium xl:w-[65%] w-full opacity-80">
+						<div className="xl:mt-[280px] lg:mt-[240px] sm:mt-[210px] mt-10 xl:text-xl lg:text-[18px] text-base font-medium xl:w-[65%] sm:w-[73%] w-full opacity-80">
 							Our portfolio includes landing pages, corporate sites, e-commerce, and full branding for clients across
 							Europe. Each project reflects a thoughtful process and close collaboration.
 						</div>

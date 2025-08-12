@@ -27,7 +27,7 @@ export default function MainPage({}: Props) {
 					></Heading>
 					<YearItem year="2025"></YearItem>
 				</div>
-				<div className="text-center sm:w-[780px] w-full xl:py-[60px] py-8 opacity-60 xl:text-xl lg:text-[18px] text-base font-normal">
+				<div className="text-center sm:w-[540px] w-full xl:py-[60px] py-8 opacity-60 xl:text-xl lg:text-[18px] text-base font-normal">
 					Welcome to our design studio, where creativity meets innovation. We specialize in transforming ideas into
 					stunning visual experiences that resonate with your audience.
 				</div>
