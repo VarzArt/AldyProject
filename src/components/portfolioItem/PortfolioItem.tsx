@@ -26,7 +26,7 @@ export default function PortfolioItem({ name, type, year, src }: PortfolioItemPr
 				<Image
 					src={src}
 					alt={`${name} company project`}
-					className="w-full h-full rounded-xl transition-all duration-500 hover:scale-110 ease-in-out"
+					className="w-full h-full rounded-xl transition-all duration-500 hover:scale-110 ease-in-out object-cover"
 				></Image>
 			</motion.div>
 			<motion.div
@@ -35,11 +35,15 @@ export default function PortfolioItem({ name, type, year, src }: PortfolioItemPr
 				transition={{ duration: 0.5, delay: 0.3 }}
 				className="flex justify-between items-center xl:pt-4 pt-2 relative"
 			>
-				<div className="font-medium xl:text-sm lg:text-xs sm:text-[10px] text-[14px] uppercase">{name}</div>
-				<div className="font-medium xl:text-base lg:text-sm sm:text-xs text-[14px] opacity-40 sm:absolute sm:left-1/2 sm:transform sm:-translate-x-1/2 lg:-bottom-[2px] sm:-bottom-[0]">
+				<div className="font-medium xl:text-sm lg:text-xs sm:text-[12px] md:text-[10px] text-[14px] uppercase">
+					{name}
+				</div>
+				<div className="font-medium xl:text-base lg:text-sm md:text-xs text-[14px] opacity-40 sm:absolute sm:left-1/2 sm:transform sm:-translate-x-1/2 lg:-bottom-[2px] sm:-bottom-[0]">
 					{type}
 				</div>
-				<div className="font-medium xl:text-sm lg:text-xs text-[10px] opacity-40 sm:block hidden">{year}</div>
+				<div className="font-medium xl:text-sm lg:text-xs sm:text-xs md:text-[10px] text-[10px] opacity-40 sm:block hidden">
+					{year}
+				</div>
 			</motion.div>
 		</div>
 	);

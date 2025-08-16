@@ -12,7 +12,7 @@ export default function Portfolio({}: Props) {
 			className="sm:rounded-t-[56px] rounded-t-[24px] bg-(--backSecondary) font-[Satoshi] flex justify-center"
 			id="portfolio"
 		>
-			<Container className="xl:pt-[160px] lg:pt-[120px] sm:pt-20 pt-15 xl:px-[120px] lg:px-[100px] sm:px-20 px-5 xl:pb-[236px] lg:pb-[216px] sm:pb-[176px] pb-[104px]">
+			<Container className="xl:pt-[160px] lg:pt-[120px] sm:pt-20 pt-15 xl:px-[120px] lg:px-[100px] md:px-20 sm:px-[28px] px-5 xl:pb-[236px] lg:pb-[216px] sm:pb-[176px] pb-[104px]">
 				<ScrollAnimation>
 					<Heading
 						text="recent projects"
@@ -20,18 +20,18 @@ export default function Portfolio({}: Props) {
 					></Heading>
 				</ScrollAnimation>
 
-				<div className="sm:grid xl:grid-cols-[480px_50%] lg:grid-cols-[400px_50%] sm:grid-cols-[320px_50%] flex flex-col justify-between text-black sm:pt-[60px] pt-5 gap-10">
+				<div className="md:grid xl:grid-cols-[480px_50%] lg:grid-cols-[400px_50%] md:grid-cols-[320px_50%] flex flex-col justify-between text-black md:pt-[60px] pt-5 gap-10">
 					{portfolioItemsConst.map((item, index) => (
 						<ScrollAnimation
 							key={item.id}
 							delay={index * 0.3 + 1}
-							className='className="xl:even:mt-[270px] lg:even:mt-[240px] sm:even:mt-[210px]'
+							className='className="xl:even:mt-[270px] lg:even:mt-[240px] md:even:mt-[210px]'
 						>
 							<PortfolioItem name={item.name} type={item.type} year={item.year} src={item.src} />
 						</ScrollAnimation>
 					))}
 					<ScrollAnimation delay={portfolioItemsConst.length * 0.5}>
-						<div className="xl:mt-[280px] lg:mt-[240px] sm:mt-[210px] mt-10 xl:text-xl lg:text-[18px] text-base font-medium xl:w-[65%] sm:w-[73%] w-full opacity-80">
+						<div className="xl:mt-[280px] lg:mt-[240px] md:mt-[210px] mt-10 xl:text-xl lg:text-[18px] text-base font-medium xl:w-[65%] md:w-[73%] sm:w-[50%] w-full opacity-80 sm:ml-[50%] md:ml-0">
 							Our portfolio includes landing pages, corporate sites, e-commerce, and full branding for clients across
 							Europe. Each project reflects a thoughtful process and close collaboration.
 						</div>

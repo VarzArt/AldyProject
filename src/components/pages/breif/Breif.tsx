@@ -38,7 +38,7 @@ export default function Brief({}: Props) {
 
 	return (
 		<section className=" bg-(--backPrimary) rounded-t-[24px] sm:rounded-t-[56px] overflow-hidden font-[Satoshi] flex justify-center mt-[-24px] sm:mt-[-56px]">
-			<Container className="relative flex sm:flex-row flex-col justify-center xl:pt-[160px] lg:pt-[120px] sm:pt-[80px] pt-15 xl:pb-[236px] lg:pb-[216px] sm:pb-[176px] pb-[104px] xl:px-[120px] lg:px-[100px] sm:px-[80px] px-5">
+			<Container className="relative flex sm:flex-row flex-col justify-center xl:pt-[160px] lg:pt-[120px] sm:pt-[80px] pt-15 xl:pb-[236px] lg:pb-[216px] sm:pb-[176px] pb-[104px] xl:px-[120px] lg:px-[100px] md:px-[80px] sm:px-[28px] px-5">
 				<div className="sm:w-[50%] w-full h-[600px] sm:h-unset">
 					<ScrollAnimation>
 						<Heading
@@ -47,13 +47,13 @@ export default function Brief({}: Props) {
 						></Heading>
 					</ScrollAnimation>
 				</div>
-				<div className="z-10 relative sm:w-[50%] w-full">
+				<div className="z-10 relative md:w-[50%] sm:w-[63%] w-full">
 					<FormUi></FormUi>
 				</div>
 
 				<div
 					ref={arrowRef}
-					className="absolute xl:-left-40 sm:-left-35 right-[35px] xl:top-[330px] lg:top-[267.5px] sm:top-[235px] top-[155px] z-0 sm:w-[50%] w-[500px] xl:h-[1161px] h-[1000px] cursor-pointer"
+					className="absolute xl:-left-40 md:-left-35 sm:-left-55 right-[35px] xl:top-[330px] lg:top-[267.5px] md:top-[235px] sm:top-[285px] top-[155px] z-0 md:w-[50%] sm:w-[550px] w-[500px] xl:h-[1161px] h-[1000px] cursor-pointer"
 					onMouseMove={handleMouseMove}
 					onMouseLeave={handleMouseLeave}
 				>

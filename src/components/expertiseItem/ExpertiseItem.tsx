@@ -10,7 +10,7 @@ type ExpertiseItemProps = {
 export default function ExpertiseItem({ number, name, qualities }: ExpertiseItemProps) {
 	return (
 		<div className="flex justify-start">
-			<div className="xl:text-sm sm:text-xs text-[10px] mt-1 sm:mt-0 font-medium opacity-60 sm:pr-[24%] pr-5">
+			<div className="xl:text-sm md:text-xs text-[10px] mt-1 sm:mt-0 font-medium opacity-60 sm:pr-[34%] md:pr-[24%] pr-5">
 				/0{number}
 			</div>
 			<div>

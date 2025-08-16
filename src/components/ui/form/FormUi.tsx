@@ -28,7 +28,7 @@ const items = [
 	},
 	{
 		id: 4,
-		label: 'Bradning',
+		label: 'Branding',
 		value: 'branding',
 	},
 	{
@@ -78,19 +78,19 @@ export default function FormUi({}: Props) {
 
 	return (
 		<form className="w-full">
-			<div className="lg:w-[620px] sm:w-[450px] w-full flex flex-col xl:gap-8 sm:gap-6 gap-[22px] xl:mb-[60px] lg:mb-[45px] sm:mb-[30px] mb-10">
+			<div className="lg:w-[620px] sm:w-[450px] w-full flex flex-col xl:gap-8 md:gap-6 sm:gap-4 gap-[22px] xl:mb-[60px] lg:mb-[45px] sm:mb-[30px] mb-10">
 				<ScrollAnimation>
 					<SubHeader text="service"></SubHeader>
 				</ScrollAnimation>
 				<ChipsUi items={items} onChange={handleChange} defaultSelected={['webdesign']} multiselect></ChipsUi>
 			</div>
-			<div className="lg:w-[640px] sm:w-[450px] w-full flex flex-col xl:gap-8 sm:gap-6 gap-[22px] xl:mb-[60px] sm:mb-[30px] mb-9">
+			<div className="lg:w-[640px] sm:w-[450px] w-full flex flex-col xl:gap-8 md:gap-6 sm:gap-4 gap-[22px] xl:mb-[60px] sm:mb-[30px] mb-9">
 				<ScrollAnimation>
 					<SubHeader text="Budget in USD"></SubHeader>
 				</ScrollAnimation>
 				<ChipsUi items={budjetItems} onChange={handleChange} defaultSelected="1-5"></ChipsUi>
 			</div>
-			<div className="flex flex-col xl:gap-3 gap-0 xl:mb-[40px] sm:mb-[20px] mb-7 w-full sm:w-unset">
+			<div className="flex flex-col xl:gap-3 gap-0 xl:mb-[40px] md:mb-[20px] sm:mb-0 mb-7 w-full sm:w-unset">
 				<ScrollAnimation>
 					<InputTextUi id="name" label="Name" value={formData.name} onChange={handleChangeInput('name')}></InputTextUi>
 				</ScrollAnimation>

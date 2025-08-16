@@ -1,4 +1,3 @@
-// app/scroll-reset.tsx  (или components/ScrollReset.tsx)
 'use client';
 
 import { useEffect } from 'react';
