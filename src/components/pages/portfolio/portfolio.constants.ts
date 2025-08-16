@@ -2,7 +2,7 @@ import Axis from '@/assets/photos/Axis.png';
 import Bravo from '@/assets/photos/Bravo.png';
 import Damas from '@/assets/photos/Damas.png';
 import Langustin from '@/assets/photos/Langustin.png';
-import Graft from '@/assets/photos/Graft.png';
+import Blossom from '@/assets/photos/Blossom.png';
 
 export const portfolioItemsConst = [
 	{
@@ -35,9 +35,9 @@ export const portfolioItemsConst = [
 	},
 	{
 		id: 5,
-		name: 'Graft AI',
+		name: 'blossom bouquet',
 		type: 'Design & Development',
 		year: 2024,
-		src: Graft,
+		src: Blossom,
 	},
 ];

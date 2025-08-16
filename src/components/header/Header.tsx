@@ -14,9 +14,12 @@ export default function Header({ className }: Props) {
 	const isDesktop = useIsDesktop();
 
 	return (
-		<div className="xl:px-[120px] sm:px-[100px] px-5 xl:py-9 sm:py-8 py-5 flex justify-between items-center" id="main">
+		<div
+			className="xl:px-[120px] md:px-[100px] sm:px-[28px] px-5 xl:py-9 sm:py-8 py-5 flex justify-between items-center"
+			id="main"
+		>
 			<Image src={logo} alt={'mainLogo'} className="xl:w-[86px] xl:h-[22px] w-[80px] h-[20px]"></Image>
-			<div className="flex justify-between items-center lg:gap-[60px] sm:gap-10 gap-5">
+			<div className="flex justify-between items-center lg:gap-[60px] md:gap-10 gap-5">
 				<div className="lg:block hidden">
 					<Navbar />
 				</div>

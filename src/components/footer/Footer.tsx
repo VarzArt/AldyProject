@@ -51,7 +51,7 @@ export default function Footer({}: Props) {
 							? 'xl:scale-[200] sm:scale-[150] scale-[75] opacity-0'
 							: 'scale-0 opacity-0'
 					}
-				sm:right-[80px] lg:right-[100px] xl:right-[120px] sm:bottom-[14.5%] right-4 bottom-[100px] z-[1] pointer-events-none will-change-transform transform-gpu`}
+				md:right-[80px] lg:right-[100px] xl:right-[120px] md:bottom-[14.5%] right-4 bottom-[100px] z-[1] pointer-events-none will-change-transform transform-gpu`}
 					style={{
 						transformOrigin: 'center',
 						width: '40px',
@@ -66,22 +66,24 @@ export default function Footer({}: Props) {
       relative z-[2]
       xl:pt-[160px] lg:pt-[120px] sm:pt-[80px] pt-[60px]
       xl:pb-0 lg:pb-0 sm:pb-0 pb-0
-      xl:px-[120px] lg:px-[100px] sm:px-[80px] px-5
+      xl:px-[120px] lg:px-[100px] md:px-[80px] sm:px-[28px] px-5
     `}
 				style={{ transform: 'translateZ(0)', willChange: 'transform', contain: 'paint' }}
 			>
-				<div className="flex justify-center sm:flex-row flex-col">
-					<div className="flex-col gap-6 items-start mr-auto">
+				<div className="flex sm:justify-start md:justify-center justify-center sm:flex-row flex-col">
+					<div className="flex-col gap-6 items-start md:mr-auto sm:mr-14 mr-auto">
 						<ScrollAnimation>
 							<SubHeader text="let's work"></SubHeader>
 						</ScrollAnimation>
 						<ScrollAnimation>
 							<div className={`border-b-2 pb-1 w-max border-b-black`}>
-								<div className="xl:text-[48px] lg:text-[40px] text-[32px] font-medium z-20">hello@aldy.com</div>
+								<div className="xl:text-[48px] lg:text-[40px] sm:text-[28px] md:text-[32px] text-[32px] font-medium z-20">
+									hello@aldy.com
+								</div>
 							</div>
 						</ScrollAnimation>
 					</div>
-					<div className="sm:w-[50%] w-full flex justify-between items-start sm:flex-row flex-col mt-15 sm:mt-0">
+					<div className="md:w-[50%] w-full flex justify-between items-start sm:flex-row flex-col mt-15 sm:mt-0">
 						<div className="flex justify-between sm:w-[50%] w-[73%] sm:mb-0 mb-15">
 							<FooterCol name="sitemap" color={activeColor} tabs={navBarTabs}></FooterCol>
 							<FooterCol name="socials" color={activeColor} tabs={socialMedia}></FooterCol>
@@ -97,7 +99,7 @@ export default function Footer({}: Props) {
 				<div className="flex justify-end xl:mt-[200px] sm:mt-[120px] mt-[80px] relative">
 					<ScrollAnimation className="flex justify-end w-full">
 						<div
-							className={`xl:text-[295px] lg:text-[240px] sm:text-[175px] text-[130px] font-black uppercase leading-[80%] pr-2 transition-all duration-700 ${
+							className={`xl:text-[295px] lg:text-[240px] md:text-[175px] sm:text-[255px] text-[130px] font-black uppercase leading-[80%] pr-2 transition-all duration-700 ${
 								activeColor === 'pink' ? 'text-black' : 'text-(--backSecondary)'
 							}`}
 						>
@@ -120,10 +122,10 @@ export default function Footer({}: Props) {
 					)}
 				</div>
 				<ScrollAnimation>
-					<div className="border-t border-t-cyan-950/10 w-full sm:mt-14 mt-10 xl:py-7 py-5 flex justify-between font-normal xl:text-[16px] text-[14px]">
+					<div className="border-t border-t-cyan-950/10 w-full sm:mt-14 mt-10 xl:py-7 py-5 flex justify-between font-normal xl:text-[16px] sm:text-[12px] md:text-[14px] text-[14px]">
 						<div className="opacity-50">Privacy Policy</div>
-						<div className="opacity-50 sm:pl-21">Cookies Policy</div>
-						<div className="opacity-50 xl:text-sm text-[13px]">©ALDY2024</div>
+						<div className="opacity-50 md:pl-21 sm:-ml-22">Cookies Policy</div>
+						<div className="opacity-50 xl:text-sm sm:text-[10px] md:text-[13px] text-[13px]">©ALDY2024</div>
 					</div>
 				</ScrollAnimation>
 			</div>

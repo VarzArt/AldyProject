@@ -15,18 +15,16 @@ type Variants = {
 
 export default function ButtonUi({ children, variant = 'primary', className = '', ...props }: ButtonProps) {
 	const baseStyles =
-		'font-[Satoshi] uppercase rounded-[100px] duration-150 ease-in-out cursor-pointer text-xs xl:text-sm';
+		'font-[Satoshi] uppercase rounded-[100px] duration-150 ease-in-out cursor-pointer sm:text-[10px] md:text-xs text-xs xl:text-sm';
 
 	const variants: Variants = {
 		primary: 'border border-(--pinkPrimary) hover:bg-(--pinkPrimary) px-[28px] py-[11px]',
-		mobilePrimary: 'border border-(--pinkPrimary) hover:bg-(--pinkPrimary) py-[20px] px-[40px] text-black',
-		subPrimary:
-			'border border-(--backPrimary) hover:bg-(--pinkPrimary) hover:border-transparent xl:px-[33px] px-[36px] xl:py-[22px] py-5',
+		mobilePrimary: 'border border-(--pinkPrimary) hover:bg-(--pinkPrimary) py-[20px] px-[32px] text-black',
+		subPrimary: 'border border-(--backPrimary) hover:bg-(--pinkPrimary) hover:border-transparent py-[20px] px-[32px]',
 		subPrimaryHover:
-			'border border-(--backPrimary) hover:bg-(--backSecondary) hover:border-transparent xl:px-[33px] px-[36px] xl:py-[22px] py-5',
-		secondary:
-			'bg-(--pinkPrimary) text-black hover:bg-(--backPrimary) hover:text-white xl:px-[42px] px-[36px] xl:py-[24px] py-5',
-		subSecondary: 'bg-(--pinkPrimary) text-black hover:bg-(--backSecondary) px-[41px] py-[24px]',
+			'border border-(--backPrimary) hover:bg-(--backSecondary) hover:border-transparent py-[20px] px-[32px]',
+		secondary: 'bg-(--pinkPrimary) text-black hover:bg-(--backPrimary) hover:text-white py-[20px] px-[32px]',
+		subSecondary: 'bg-(--pinkPrimary) text-black hover:bg-(--backSecondary) py-[20px] px-[32px]',
 	};
 
 	return (

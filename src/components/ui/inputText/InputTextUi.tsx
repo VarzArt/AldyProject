@@ -28,7 +28,7 @@ export const InputTextUi = ({
 	const handleBlur = () => setIsFocused(value !== '');
 
 	return (
-		<div className={`relative mb-6 w-full ${className}`}>
+		<div className={`relative mb-6 sm:mb-3 md:gap-6 w-full ${className}`}>
 			<input
 				ref={inputRef}
 				id={id}

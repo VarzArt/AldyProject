@@ -12,7 +12,7 @@ type FooterColProps = {
 
 export default function FooterCol({ name, tabs, color }: FooterColProps) {
 	return (
-		<div className="flex flex-col items-start xl:gap-10 sm:gap-6 gap-3">
+		<div className="flex flex-col items-start xl:gap-10 md:gap-6 gap-3">
 			<ScrollAnimation>
 				<SubHeader text={name}></SubHeader>
 			</ScrollAnimation>
