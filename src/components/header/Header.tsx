@@ -5,13 +5,14 @@ import Image from 'next/image';
 import logo from '@/assets/images/LogoMain.png';
 import { ButtonUi, MobileMenu, Navbar } from '@/components/ui';
 import { useIsDesktop } from '@/hooks/useIsDesktop';
+import { BriefModalTrigger, useBriefModal } from '@/providers/ModalProvider';
 
 type Props = {
 	className?: string;
 };
 
 export default function Header({ className }: Props) {
-	const isDesktop = useIsDesktop();
+	const { open } = useBriefModal();
 
 	return (
 		<div
@@ -24,7 +25,9 @@ export default function Header({ className }: Props) {
 					<Navbar />
 				</div>
 
-				<ButtonUi variant="primary">Let's talk</ButtonUi>
+				<ButtonUi variant="primary" onClick={() => open({ source: 'header' })}>
+					Let's talk
+				</ButtonUi>
 				<div className="lg:hidden">
 					<MobileMenu />
 				</div>

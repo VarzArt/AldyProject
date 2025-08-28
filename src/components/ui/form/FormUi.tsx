@@ -7,8 +7,11 @@ import { InputTextareaUi } from '../textarea/InputTextareaUi';
 import SubHeader from '../subheader/SubHeader';
 import ButtonUi from '../button/ButtonUi';
 import ScrollAnimation from '../scrollAnimation/ScrollAnimation';
+import clsx from 'clsx';
 
-type Props = {};
+type FormUiProps = {
+	variant?: 'page' | 'modal';
+};
 
 const items = [
 	{
@@ -61,7 +64,7 @@ const budjetItems = [
 	},
 ];
 
-export default function FormUi({}: Props) {
+export default function FormUi({ variant = 'page' }: FormUiProps) {
 	const handleChange = (selectedItem: string | string[]) => {
 		console.log(selectedItem);
 	};
@@ -77,22 +80,60 @@ export default function FormUi({}: Props) {
 	};
 
 	return (
-		<form className="w-full">
-			<div className="lg:w-[620px] sm:w-[450px] w-full flex flex-col xl:gap-8 md:gap-6 sm:gap-4 gap-[22px] xl:mb-[60px] lg:mb-[45px] sm:mb-[30px] mb-10">
+		<form className="w-full font-[Satoshi]">
+			<div
+				data-variant={variant}
+				className={clsx(
+					'w-full flex flex-col',
+					'data-[variant=page]:lg:w-[620px] data-[variant=page]:xl:gap-8 data-[variant=page]:md:gap-6 data-[variant=page]:sm:w-[450px] data-[variant=page]:sm:gap-4 data-[variant=page]:gap-[22px] data-[variant=page]:xl:mb-[60px] data-[variant=page]:lg:mb-[45px] data-[variant=page]:sm:mb-[30px] data-[variant=page]:mb-10',
+					'data-[variant=modal]:gap-2 data-[variant=modal]:sm:gap-3 data-[variant=modal]:mb-4 data-[variant=modal]:xl:mb-6 data-[variant=page]:mb-6'
+				)}
+			>
 				<ScrollAnimation>
 					<SubHeader text="service"></SubHeader>
 				</ScrollAnimation>
-				<ChipsUi items={items} onChange={handleChange} defaultSelected={['webdesign']} multiselect></ChipsUi>
+				<ChipsUi
+					items={items}
+					onChange={handleChange}
+					defaultSelected={['webdesign']}
+					multiselect
+					isModal={variant === 'modal'}
+				></ChipsUi>
 			</div>
-			<div className="lg:w-[640px] sm:w-[450px] w-full flex flex-col xl:gap-8 md:gap-6 sm:gap-4 gap-[22px] xl:mb-[60px] sm:mb-[30px] mb-9">
+			<div
+				data-variant={variant}
+				className={clsx(
+					'w-full flex flex-col',
+					'data-[variant=page]:lg:w-[620px] data-[variant=page]:xl:gap-8 data-[variant=page]:md:gap-6 data-[variant=page]:sm:w-[450px] data-[variant=page]:sm:gap-4 data-[variant=page]:gap-[22px] data-[variant=page]:xl:mb-[60px] data-[variant=page]:lg:mb-[45px] data-[variant=page]:sm:mb-[30px] data-[variant=page]:mb-10',
+					'data-[variant=modal]:gap-2 data-[variant=modal]:sm:gap-3 data-[variant=modal]:mb-4 data-[variant=modal]:xl:mb-6 data-[variant=page]:mb-6'
+				)}
+			>
 				<ScrollAnimation>
 					<SubHeader text="Budget in USD"></SubHeader>
 				</ScrollAnimation>
-				<ChipsUi items={budjetItems} onChange={handleChange} defaultSelected="1-5"></ChipsUi>
+				<ChipsUi
+					items={budjetItems}
+					onChange={handleChange}
+					defaultSelected="1-5"
+					isModal={variant === 'modal'}
+				></ChipsUi>
 			</div>
-			<div className="flex flex-col xl:gap-3 gap-0 xl:mb-[40px] md:mb-[20px] sm:mb-0 mb-7 w-full sm:w-unset">
+			<div
+				data-variant={variant}
+				className={clsx(
+					'flex flex-col xl:gap-3 gap-0 w-full sm:w-unset',
+					'data-[variant=page]:xl:mb-[40px] data-[variant=page]:md:mb-[20px] data-[variant=page]:sm:mb-0 data-[variant=page]:mb-7',
+					'data-[variant=modal]:mb-1 data-[variant=modal]:xl:mb-6'
+				)}
+			>
 				<ScrollAnimation>
-					<InputTextUi id="name" label="Name" value={formData.name} onChange={handleChangeInput('name')}></InputTextUi>
+					<InputTextUi
+						id="name"
+						label="Name"
+						value={formData.name}
+						onChange={handleChangeInput('name')}
+						isModal={variant === 'modal'}
+					></InputTextUi>
 				</ScrollAnimation>
 				<ScrollAnimation>
 					<InputTextUi
@@ -100,6 +141,7 @@ export default function FormUi({}: Props) {
 						label="Email"
 						value={formData.email}
 						onChange={handleChangeInput('email')}
+						isModal={variant === 'modal'}
 					></InputTextUi>
 				</ScrollAnimation>
 				<ScrollAnimation>
@@ -108,12 +150,18 @@ export default function FormUi({}: Props) {
 						label="Project details"
 						value={formData.projectDetails}
 						onChange={handleChangeInput('projectDetails')}
-						rows={3}
+						rows={variant !== 'modal' ? 3 : 1}
+						isModal={variant === 'modal'}
 					></InputTextareaUi>
 				</ScrollAnimation>
 			</div>
 			<ScrollAnimation>
-				<ButtonUi variant={'subSecondary'}>discuss project</ButtonUi>
+				<div
+					data-variant={variant}
+					className={clsx('w-full', 'data-[variant=modal]:flex data-[variant=modal]:justify-start')}
+				>
+					<ButtonUi variant={variant !== 'modal' ? 'subSecondary' : 'mobile'}>discuss project</ButtonUi>
+				</div>
 			</ScrollAnimation>
 		</form>
 	);
