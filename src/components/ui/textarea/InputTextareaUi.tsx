@@ -1,5 +1,6 @@
 'use client';
 
+import clsx from 'clsx';
 import { useState, useRef } from 'react';
 
 interface FloatingLabelTextareaProps {
@@ -10,6 +11,7 @@ interface FloatingLabelTextareaProps {
 	rows?: number;
 	required?: boolean;
 	className?: string;
+	isModal: boolean;
 }
 
 export const InputTextareaUi = ({
@@ -20,6 +22,7 @@ export const InputTextareaUi = ({
 	rows = 3,
 	required = false,
 	className = '',
+	isModal,
 }: FloatingLabelTextareaProps) => {
 	const [isFocused, setIsFocused] = useState(false);
 	const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -28,7 +31,7 @@ export const InputTextareaUi = ({
 	const handleBlur = () => setIsFocused(value !== '');
 
 	return (
-		<div className={`relative mb-6 w-full ${className}`}>
+		<div className={clsx(isModal && 'mb-3', !isModal && 'mb-6', `relative w-full ${className}`)}>
 			<textarea
 				ref={textareaRef}
 				id={id}

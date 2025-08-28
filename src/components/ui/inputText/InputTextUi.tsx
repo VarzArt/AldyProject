@@ -1,5 +1,6 @@
 'use client';
 
+import clsx from 'clsx';
 import { useState, useRef } from 'react';
 
 interface FloatingLabelInputProps {
@@ -10,6 +11,7 @@ interface FloatingLabelInputProps {
 	type?: string;
 	required?: boolean;
 	className?: string;
+	isModal: boolean;
 }
 
 export const InputTextUi = ({
@@ -20,6 +22,7 @@ export const InputTextUi = ({
 	type = 'text',
 	required = false,
 	className = '',
+	isModal,
 }: FloatingLabelInputProps) => {
 	const [isFocused, setIsFocused] = useState(false);
 	const inputRef = useRef<HTMLInputElement>(null);
@@ -28,7 +31,9 @@ export const InputTextUi = ({
 	const handleBlur = () => setIsFocused(value !== '');
 
 	return (
-		<div className={`relative mb-6 sm:mb-3 md:gap-6 w-full ${className}`}>
+		<div
+			className={clsx(isModal && 'mb-4 sm:mb-6', !isModal && 'mb-6 sm:mb-3', `relative md:gap-6 w-full ${className}`)}
+		>
 			<input
 				ref={inputRef}
 				id={id}

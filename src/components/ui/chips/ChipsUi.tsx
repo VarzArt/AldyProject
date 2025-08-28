@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import type { FC } from 'react';
 import ScrollAnimation from '../scrollAnimation/ScrollAnimation';
+import clsx from 'clsx';
 
 interface ChipItem {
 	id: string | number;
@@ -16,6 +17,7 @@ interface ChipsRadioProps {
 	defaultSelected?: string | string[];
 	className?: string;
 	multiselect?: boolean;
+	isModal: boolean;
 }
 
 const ChipsUi: FC<ChipsRadioProps> = ({
@@ -24,6 +26,7 @@ const ChipsUi: FC<ChipsRadioProps> = ({
 	defaultSelected = '',
 	className = '',
 	multiselect = false,
+	isModal,
 }) => {
 	const [selectedValues, setSelectedValues] = useState<string | string[]>(
 		multiselect
@@ -39,8 +42,8 @@ const ChipsUi: FC<ChipsRadioProps> = ({
 		if (multiselect) {
 			const currentValues = Array.isArray(selectedValues) ? selectedValues : [];
 			const newValues = currentValues.includes(value)
-				? currentValues.filter((v) => v !== value) // Удаляем если уже выбран
-				: [...currentValues, value]; // Добавляем если не выбран
+				? currentValues.filter((v) => v !== value)
+				: [...currentValues, value];
 
 			setSelectedValues(newValues);
 			onChange(newValues);
@@ -62,14 +65,19 @@ const ChipsUi: FC<ChipsRadioProps> = ({
 					<button
 						type="button"
 						onClick={() => handleSelect(item.value)}
-						className={`
-              lg:px-[28px] sm:px-5 px-[24px] xl:py-[11px] sm:py-[9px] py-[13px] rounded-full border transition-all xl:text-[19px] lg:text-[18px] sm:text-base text-[18px]
-              ${
-								isSelected(item.value)
-									? 'bg-(--pinkPrimary) text-white border-transparent'
-									: 'bg-transparent text-white border-[#46464A] hover:bg-(--pinkPrimary)/50'
-							}
-            `}
+						className={clsx(
+							'rounded-full border transition-all',
+							!isModal &&
+								'lg:px-[28px] sm:px-5 px-[24px] xl:py-[11px] sm:py-[9px] py-[13px] xl:text-[19px] lg:text-[18px] sm:text-base text-[18px]',
+							isModal && 'px-4 sm:px-5 py-2 lg:px-7 lg:py-2 text-[14px] sm:text-base lg:text-[18px] xl:text-[19px]',
+							`
+									${
+										isSelected(item.value)
+											? 'bg-(--pinkPrimary) text-white border-transparent'
+											: 'bg-transparent text-white border-[#46464A] hover:bg-(--pinkPrimary)/50'
+									}
+								`
+						)}
 					>
 						{item.label}
 					</button>

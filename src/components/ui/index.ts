@@ -9,3 +9,4 @@ export * from './subheader';
 export * from './textarea';
 export * from './container';
 export * from './mobileMenu';
+export * from './modal';

@@ -3,10 +3,13 @@
 import React from 'react';
 import { servicesConsts } from './services.constants';
 import { ButtonUi, Container, ScrollAnimation, ServiceItem } from '@/components';
+import { useBriefModal } from '@/providers/ModalProvider';
 
 type Props = {};
 
 export default function Services({}: Props) {
+	const { open } = useBriefModal();
+
 	return (
 		<section
 			className=" bg-(--backSecondary) sm:rounded-t-[56px] rounded-t-[24px] flex justify-center sm:mt-[-56px] mt-[-24px]"
@@ -15,10 +18,18 @@ export default function Services({}: Props) {
 			<Container className="xl:pt-[180px] lg:pt-[120px] sm:pt-[80px] pt-15 xl:pb-[236px] lg:pb-[216px] sm:pb-[176px] pb-[104px] xl:px-[120px] lg:px-[100px] md:px-[80px] sm:px-[28px] px-5">
 				<div className="flex justify-between items-start sm:flex-row flex-col-reverse">
 					<ScrollAnimation>
-						<ButtonUi variant={'secondary'} className="sm:inline-flex hidden">
+						<ButtonUi
+							variant={'secondary'}
+							className="sm:inline-flex hidden"
+							onClick={() => open({ source: 'services' })}
+						>
 							Become a client
 						</ButtonUi>
-						<ButtonUi variant={'mobilePrimary'} className="sm:hidden inline-flex">
+						<ButtonUi
+							variant={'mobilePrimary'}
+							className="sm:hidden inline-flex"
+							onClick={() => open({ source: 'services' })}
+						>
 							Become a client
 						</ButtonUi>
 					</ScrollAnimation>

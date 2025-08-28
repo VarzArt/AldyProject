@@ -48,7 +48,7 @@ export default function Brief({}: Props) {
 					</ScrollAnimation>
 				</div>
 				<div className="z-10 relative md:w-[50%] sm:w-[63%] w-full">
-					<FormUi></FormUi>
+					<FormUi variant="page"></FormUi>
 				</div>
 
 				<div

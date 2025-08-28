@@ -13,7 +13,7 @@ export default function MainPage({}: Props) {
 	const isDesktop = useIsDesktop();
 
 	return (
-		<section className=" font-[Satoshi] flex justify-center">
+		<section className="font-[Satoshi] flex justify-center">
 			<Container className="flex flex-col items-center xl:pt-[60px] pt-10 xl:pb-[180px] lg:pb-[160px] sm:pb-[120px] pb-[80px] xl:px-[120px] lg:px-[100px] md:px-[80] sm:px-[28px] px-5 ">
 				<div className="flex items-center xl:gap-[22px] gap-[14px] z-1 relative before:absolute before:rounded-full xl:before:w-6 before:w-4 xl:before:h-6 before:h-4 before:opacity-20 before:bg-(--pinkPrimary) xl:before:left-[-6px] before:left-[-4px] pb-7">
 					<div className="xl:w-3 xl:h-3 w-2 h-2 rounded-full bg-(--pinkPrimary)"></div>
