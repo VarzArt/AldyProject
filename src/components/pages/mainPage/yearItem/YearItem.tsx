@@ -5,5 +5,5 @@ type YearItemProps = {
 };
 
 export default function YearItem({ year }: YearItemProps) {
-	return <div className="opacity-60 sm:text-[10px] text-xs xl:text-sm pb-9 sm:block hidden">{year}</div>;
+	return <div className="opacity-60 text-xs xl:text-sm pb-9 sm:block hidden">{year}</div>;
 }

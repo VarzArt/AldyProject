@@ -93,7 +93,7 @@ export default function ScrollTriggeredCounter({
 					delay: isInView ? effectiveDelay : 0,
 				},
 			}}
-			className="lg:px-8 px-5 xl:pt-6 lg:pt-5 pt-4 xl:pb-8 lg:pb-5 pb-3 bg-[#191919]/70 rounded-xl xl:h-[270px] lg:h-[235px] md:h-[213px] h-[190px] flex flex-col justify-between items-start relative"
+			className="lg:px-8 px-5 xl:pt-6 lg:pt-5 pt-4 xl:pb-8 lg:pb-5 pb-3 bg-[#191919]/70 rounded-md xl:h-[270px] lg:h-[235px] md:h-[213px] h-[190px] flex flex-col justify-between items-start relative"
 		>
 			<div className="opacity-40 font-medium xl:text-sm md:text-xs text-[10px]">/0{number}</div>
 			<div className="xl:text-[78px] lg:text-[70px] sm:text-[56px] text-[68px] font-bold absolute top-1/2 transform -translate-y-1/2">

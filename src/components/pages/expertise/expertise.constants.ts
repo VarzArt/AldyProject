@@ -16,11 +16,16 @@ export const expertiseConsts = [
 	},
 	{
 		id: 4,
+		name: 'INTERIOR DESIGN',
+		qualities: ['RESIDENTIAL', 'COMMERCIAL', '3D VISUALIZATION'],
+	},
+	{
+		id: 5,
 		name: 'Branding',
 		qualities: ['logo', 'corporate Identity'],
 	},
 	{
-		id: 5,
+		id: 6,
 		name: 'Graphics',
 		qualities: ['2d illustrations', 'Marketing materials'],
 	},

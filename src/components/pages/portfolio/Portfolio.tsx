@@ -12,7 +12,7 @@ export default function Portfolio({}: Props) {
 			className="sm:rounded-t-[56px] rounded-t-[24px] bg-(--backSecondary) font-[Satoshi] flex justify-center"
 			id="portfolio"
 		>
-			<Container className="xl:pt-[160px] lg:pt-[120px] sm:pt-20 pt-15 xl:px-[120px] lg:px-[100px] md:px-20 sm:px-[28px] px-5 xl:pb-[236px] lg:pb-[216px] sm:pb-[176px] pb-[104px]">
+			<Container className="xl:pt-[160px] lg:pt-[120px] sm:pt-[80px] pt-15 xl:px-[120px] lg:px-[100px] sm:px-[28px] px-5 xl:pb-[236px] lg:pb-[216px] sm:pb-[176px] pb-[104px]">
 				<ScrollAnimation>
 					<Heading
 						text="recent projects"
@@ -20,18 +20,21 @@ export default function Portfolio({}: Props) {
 					></Heading>
 				</ScrollAnimation>
 
-				<div className="md:grid xl:grid-cols-[480px_50%] lg:grid-cols-[400px_50%] md:grid-cols-[320px_50%] flex flex-col justify-between text-black md:pt-[60px] pt-5 gap-10">
+				<div className="lg:grid lg:grid-cols-[50%_50%] flex flex-col justify-between text-black lg:pt-[60px] pt-5 gap-2 lg:gap-y-25 gap-y-10">
 					{portfolioItemsConst.map((item, index) => (
-						<ScrollAnimation
-							key={item.id}
-							delay={index * 0.3 + 1}
-							className='className="xl:even:mt-[270px] lg:even:mt-[240px] md:even:mt-[210px]'
-						>
+						<ScrollAnimation key={item.id} delay={index * 0.3} className="">
 							<PortfolioItem name={item.name} type={item.type} year={item.year} src={item.src} />
 						</ScrollAnimation>
 					))}
-					<ScrollAnimation delay={portfolioItemsConst.length * 0.5}>
-						<div className="xl:mt-[280px] lg:mt-[240px] md:mt-[210px] mt-10 xl:text-xl lg:text-[18px] text-base font-medium xl:w-[65%] md:w-[73%] sm:w-[50%] w-full opacity-80 sm:ml-[50%] md:ml-0">
+					<hr className="col-span-2 border-[#9595A0] opacity-10" />
+					<ScrollAnimation className="lg:mt-[-40px]">
+						<div className="flex justify-start items-center">
+							<div className="bg-(--pinkPrimary) w-2 h-2 rounded-full mr-2"></div>
+							<div className="uppercase xl:text-sm lg:text-xs sm:text-base text-sm font-medium">ABOUT</div>
+						</div>
+					</ScrollAnimation>
+					<ScrollAnimation className="lg:mt-[-40px] mt-[-20px]">
+						<div className="xl:text-xl lg:text-[18px] sm:text-2xl text-[18px] font-medium lg:w-[65%] w-full opacity-80 sm:ml-[50%] md:ml-0">
 							Our portfolio includes landing pages, corporate sites, e-commerce, and full branding for clients across
 							Europe. Each project reflects a thoughtful process and close collaboration.
 						</div>
