@@ -33,11 +33,4 @@ export const portfolioItemsConst = [
 		year: 2024,
 		src: Langustin,
 	},
-	{
-		id: 5,
-		name: 'blossom bouquet',
-		type: 'Design & Development',
-		year: 2024,
-		src: Blossom,
-	},
 ];
