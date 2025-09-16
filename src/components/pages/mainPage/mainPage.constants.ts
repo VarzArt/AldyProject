@@ -21,7 +21,15 @@ export const infoCardsConstants = [
 			number: 95,
 			measure: '%',
 		},
-		desc: 'of clients come through referrals',
+		desc: 'of clients stay with us',
+	},
+	{
+		id: 4,
+		info: {
+			number: 100,
+			measure: '%',
+		},
+		desc: 'team involvement',
 	},
 ];
 

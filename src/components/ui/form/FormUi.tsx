@@ -85,7 +85,7 @@ export default function FormUi({ variant = 'page' }: FormUiProps) {
 				data-variant={variant}
 				className={clsx(
 					'w-full flex flex-col',
-					'data-[variant=page]:lg:w-[620px] data-[variant=page]:xl:gap-8 data-[variant=page]:md:gap-6 data-[variant=page]:sm:w-[450px] data-[variant=page]:sm:gap-4 data-[variant=page]:gap-[22px] data-[variant=page]:xl:mb-[60px] data-[variant=page]:lg:mb-[45px] data-[variant=page]:sm:mb-[30px] data-[variant=page]:mb-10',
+					'data-[variant=page]:lg:w-[620px] data-[variant=page]:xl:gap-8 data-[variant=page]:md:gap-6 data-[variant=page]:sm:w-[320px] data-[variant=page]:sm:gap-4 data-[variant=page]:gap-[22px] data-[variant=page]:xl:mb-[60px] data-[variant=page]:lg:mb-[45px] data-[variant=page]:sm:mb-[30px] data-[variant=page]:mb-8',
 					'data-[variant=modal]:gap-2 data-[variant=modal]:sm:gap-3 data-[variant=modal]:mb-4 data-[variant=modal]:xl:mb-6 data-[variant=page]:mb-6'
 				)}
 			>
@@ -104,7 +104,7 @@ export default function FormUi({ variant = 'page' }: FormUiProps) {
 				data-variant={variant}
 				className={clsx(
 					'w-full flex flex-col',
-					'data-[variant=page]:lg:w-[620px] data-[variant=page]:xl:gap-8 data-[variant=page]:md:gap-6 data-[variant=page]:sm:w-[450px] data-[variant=page]:sm:gap-4 data-[variant=page]:gap-[22px] data-[variant=page]:xl:mb-[60px] data-[variant=page]:lg:mb-[45px] data-[variant=page]:sm:mb-[30px] data-[variant=page]:mb-10',
+					'data-[variant=page]:lg:w-[620px] data-[variant=page]:xl:gap-8 data-[variant=page]:md:gap-6 data-[variant=page]:sm:w-[320px] data-[variant=page]:sm:gap-4 data-[variant=page]:gap-[22px] data-[variant=page]:xl:mb-[60px] data-[variant=page]:lg:mb-[45px] data-[variant=page]:sm:mb-[30px] data-[variant=page]:mb-10',
 					'data-[variant=modal]:gap-2 data-[variant=modal]:sm:gap-3 data-[variant=modal]:mb-4 data-[variant=modal]:xl:mb-6 data-[variant=page]:mb-6'
 				)}
 			>
@@ -122,7 +122,7 @@ export default function FormUi({ variant = 'page' }: FormUiProps) {
 				data-variant={variant}
 				className={clsx(
 					'flex flex-col xl:gap-3 gap-0 w-full sm:w-unset',
-					'data-[variant=page]:xl:mb-[40px] data-[variant=page]:md:mb-[20px] data-[variant=page]:sm:mb-0 data-[variant=page]:mb-7',
+					'data-[variant=page]:xl:mb-[40px] data-[variant=page]:sm:mb-0 data-[variant=page]:mb-2',
 					'data-[variant=modal]:mb-1 data-[variant=modal]:xl:mb-6'
 				)}
 			>
