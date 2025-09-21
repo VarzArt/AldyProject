@@ -3,10 +3,14 @@
 import React from 'react';
 import { portfolioItemsConst } from './portfolio.constants';
 import { Container, Heading, PortfolioItem, ScrollAnimation } from '@/components';
+import { usePortfolioModal } from '@/providers/ModalProvider';
+import { PortfolioModalContent } from '../portfolioModalContent';
 
 type Props = {};
 
 export default function Portfolio({}: Props) {
+	const { open } = usePortfolioModal();
+
 	return (
 		<section
 			className="sm:rounded-t-[56px] rounded-t-[24px] bg-(--backSecondary) font-[Satoshi] flex justify-center"
@@ -23,7 +27,27 @@ export default function Portfolio({}: Props) {
 				<div className="lg:grid lg:grid-cols-[50%_50%] flex flex-col justify-between text-black lg:pt-[60px] pt-5 gap-2 lg:gap-y-25 gap-y-10">
 					{portfolioItemsConst.map((item, index) => (
 						<ScrollAnimation key={item.id} delay={index * 0.3} className="">
-							<PortfolioItem name={item.name} type={item.type} year={item.year} src={item.src} />
+							<PortfolioItem
+								name={item.name}
+								type={item.type}
+								year={item.year}
+								src={item.src}
+								srcDesc={item.srcDesc!}
+								shortName={item.short_name}
+								onClick={() =>
+									open({
+										content: (
+											<PortfolioModalContent
+												title={item.name}
+												desc={item.description!}
+												services={item.services!}
+												year={item.year}
+												srcs={item?.srcs}
+											/>
+										),
+									})
+								}
+							/>
 						</ScrollAnimation>
 					))}
 					<hr className="col-span-2 border-[#9595A0] opacity-10" />

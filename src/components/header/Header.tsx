@@ -28,7 +28,7 @@ export default function Header({ className }: Props) {
 					<Navbar />
 				</div>
 				<ButtonUi variant="primary" onClick={() => open({ source: 'header' })}>
-					Let's talk!
+					Let's talk
 				</ButtonUi>
 				<div className="lg:hidden">
 					<MobileMenu />

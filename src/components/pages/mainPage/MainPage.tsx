@@ -5,19 +5,16 @@ import { aboutConstants, infoCardsConstants } from './mainPage.constants';
 import AboutItem from './about/aboutItem/AboutItem';
 import YearItem from './yearItem/YearItem';
 import { Container, Heading, InfoCard, ScrollAnimation } from '@/components';
-import { useIsDesktop } from '@/hooks/useIsDesktop';
 
 type Props = {};
 
 export default function MainPage({}: Props) {
-	const isDesktop = useIsDesktop();
-
 	return (
 		<section className="font-[Satoshi] flex justify-center">
 			<Container className="flex flex-col items-center xl:pt-[60px] pt-10 xl:pb-[180px] lg:pb-[160px] pb-[80px] xl:px-[120px] lg:px-[100px] sm:px-[28px] px-5 ">
-				<div className="flex items-center xl:gap-[22px] gap-[14px] z-1 relative before:absolute before:rounded-full xl:before:w-6 before:w-4 xl:before:h-6 before:h-4 before:opacity-20 before:bg-(--pinkPrimary) xl:before:left-[-6px] before:left-[-4px] pb-7">
-					<div className="xl:w-3 xl:h-3 w-2 h-2 rounded-full bg-(--pinkPrimary)"></div>
-					<div className="uppercase opacity-60 xl:text-sm text-[13px]">we are free for projects</div>
+				<div className="flex items-center xl:gap-[22px] gap-[14px] z-1 relative pb-7">
+					<div className="xl:w-3 xl:h-3 w-2 h-2 rounded-full bg-(--pinkPrimary) relative before:absolute before:rounded-full xl:before:w-6 before:w-4 xl:before:h-6 before:h-4 before:opacity-20 before:bg-(--pinkPrimary) xl:before:left-[-6px] before:left-[-4px] before:top-[-50%] animate-bounce"></div>
+					<div className="uppercase opacity-60 xl:text-sm text-[13px]">your vision to reality</div>
 				</div>
 				<div className="flex items-center justify-between w-full">
 					<YearItem year="2019"></YearItem>
@@ -28,8 +25,8 @@ export default function MainPage({}: Props) {
 					<YearItem year="2025"></YearItem>
 				</div>
 				<div className="leading-6 text-center xl:w-[580px] md:w-[540px] sm:w-[480px] w-[95%] xl:py-[60px] sm:pb-10 md:pb-8 py-8 opacity-60 xl:text-xl lg:text-[18px] text-base font-normal">
-					Welcome to our design studio, where creativity meets innovation. We specialize in transforming ideas into
-					stunning visual experiences that resonate with your audience.
+					Welcome to our design studio, where creativity meets innovation.  We transform your ideas into stunning visual
+					experiences  that resonate with your audience and bring results
 				</div>
 				<div className=" border-t border-t-gray-300/10 border-b border-b-gray-300/10 xl:py-15 py-8 w-full flex justify-center">
 					<div className="max-w-[1680] w-[100%] h-max">

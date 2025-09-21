@@ -1,95 +1,81 @@
 'use client';
 
-import {
-	createContext,
-	useCallback,
-	useContext,
-	useMemo,
-	useState,
-	ReactNode,
-	ReactElement,
-	cloneElement,
-} from 'react';
-import { FormUi, Heading, Modal } from '@/components';
+import React, { createContext, useCallback, useContext, useMemo, useState } from 'react';
+import { BriefOpenOptions, FormUi, Modal, PortfolioModalOpenProps, PortfolioModal } from '@/components';
 import clsx from 'clsx';
 
-export type BriefOpenOptions = {
-	source?: string;
-	modalClassName?: string;
-	closeOnOverlayClick?: boolean;
-	closeOnEsc?: boolean;
-	showCloseButton?: boolean;
-};
-
 type Ctx = {
-	open: (opts?: BriefOpenOptions) => void;
-	close: () => void;
-	isOpen: boolean;
+	openBreif: (opts?: BriefOpenOptions) => void;
+	closeBreif: () => void;
+	isOpenBreif: boolean;
+
+	openPortfolio: (props?: PortfolioModalOpenProps) => void;
+	closePortfolio: () => void;
+	isPortfolioOpen: boolean;
 };
 
-const BriefCtx = createContext<Ctx | null>(null);
+const ModalCtx = createContext<Ctx | null>(null);
 
-export function BriefModalProvider({ children }: { children: ReactNode }) {
-	const [isOpen, setOpen] = useState(false);
+export function BriefModalProvider({ children }: { children: React.ReactNode }) {
+	const [isOpenBreif, setOpen] = useState(false);
 	const [opts, setOpts] = useState<BriefOpenOptions | undefined>(undefined);
 
-	const open = useCallback((o?: BriefOpenOptions) => {
+	const [isPortfolioOpen, setPortfolioOpen] = useState(false);
+	const [portfolioProps, setPortfolioProps] = useState<PortfolioModalOpenProps | undefined>(undefined);
+
+	const openBreif = useCallback((o?: BriefOpenOptions) => {
 		setOpts(o);
 		setOpen(true);
 	}, []);
 
-	const close = useCallback(() => setOpen(false), []);
+	const closeBreif = useCallback(() => setOpen(false), []);
 
-	const value = useMemo(() => ({ open, close, isOpen }), [open, close, isOpen]);
+	const openPortfolio = useCallback((p?: PortfolioModalOpenProps) => {
+		setPortfolioProps(p);
+		setPortfolioOpen(true);
+	}, []);
+
+	const closePortfolio = useCallback(() => setPortfolioOpen(false), []);
+
+	const value = useMemo(
+		() => ({ openBreif, closeBreif, isOpenBreif, openPortfolio, closePortfolio, isPortfolioOpen }),
+		[openBreif, closeBreif, isOpenBreif, openPortfolio, closePortfolio, isPortfolioOpen]
+	);
 
 	return (
-		<BriefCtx.Provider value={value}>
+		<ModalCtx.Provider value={value}>
 			{children}
+
 			<Modal
-				open={isOpen}
-				onClose={close}
+				open={isOpenBreif}
+				onClose={closeBreif}
 				className={clsx('font-[Satoshi]', opts?.modalClassName)}
 				closeOnOverlayClick={opts?.closeOnOverlayClick}
 				closeOnEsc={opts?.closeOnEsc}
 				showCloseButton={opts?.showCloseButton}
 			>
-				{/* <Heading
-					className="text-xl sm:text-2xl font-semibold mb-3 sm:mb-6 opacity-60 w-max"
-					text="Maybe we can discuss it?!"
-				></Heading> */}
 				<FormUi variant="modal" />
 			</Modal>
-		</BriefCtx.Provider>
+
+			<PortfolioModal open={isPortfolioOpen} onClose={closePortfolio} className={portfolioProps?.className}>
+				{portfolioProps?.content}
+			</PortfolioModal>
+		</ModalCtx.Provider>
 	);
 }
 
 export function useBriefModal() {
-	const ctx = useContext(BriefCtx);
+	const ctx = useContext(ModalCtx);
 	if (!ctx) throw new Error('useBriefModal must be used within <BriefModalProvider>');
-	return ctx;
+
+	const { openBreif, closeBreif, isOpenBreif } = ctx;
+	return { open: openBreif, close: closeBreif, isOpen: isOpenBreif };
 }
 
-type ClickHandler = (e: React.MouseEvent<HTMLElement>) => void;
+export function usePortfolioModal() {
+	const ctx = useContext(ModalCtx);
+	if (!ctx) throw new Error('usePortfolioModal must be used within <BriefModalProvider>');
 
-type TriggerProps<P extends { onClick?: ClickHandler }> = {
-	children: ReactElement<P>;
-	source?: string;
-	options?: Omit<BriefOpenOptions, 'source'>;
-};
-
-export function BriefModalTrigger<P extends { onClick?: ClickHandler }>({
-	children,
-	source,
-	options,
-}: TriggerProps<P>) {
-	const { open } = useBriefModal();
-
-	return cloneElement(children, {
-		onClick: (e: React.MouseEvent<HTMLElement>) => {
-			children.props.onClick?.(e);
-			if (!e.defaultPrevented) {
-				open({ source, ...options });
-			}
-		},
-	} as Partial<P>);
+	const { openPortfolio, closePortfolio, isPortfolioOpen } = ctx;
+	return { open: openPortfolio, close: closePortfolio, isOpen: isPortfolioOpen };
 }
