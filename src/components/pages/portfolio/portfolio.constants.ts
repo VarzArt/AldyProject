@@ -29,7 +29,7 @@ export interface portfolioItemType {
 	}[];
 }
 
-const MAIN_SRC = process.env.NEXT_PUBLIC_IMAGE_CDN;
+const MAIN_SRC = 'https://storage.yandexcloud.net/aldy-images';
 
 export const portfolioItemsConst: portfolioItemType[] = [
 	{
