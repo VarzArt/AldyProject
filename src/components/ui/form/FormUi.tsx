@@ -21,23 +21,29 @@ const items = [
 	},
 	{
 		id: 2,
-		label: 'Product design',
-		value: 'productdesign',
-	},
-	{
-		id: 3,
-		label: 'Web development',
-		value: 'webdevelopment',
-	},
-	{
-		id: 4,
 		label: 'Branding',
 		value: 'branding',
 	},
 	{
+		id: 3,
+		label: 'Mobile App',
+		value: 'mobileApp',
+	},
+	{
 		id: 5,
-		label: 'Graphics',
-		value: 'graphics',
+		label: 'Social nets design',
+		value: 'socialNetsDesign',
+	},
+	{
+		id: 4,
+		label: 'Interior Design',
+		value: 'interiorDesign',
+	},
+
+	{
+		id: 6,
+		label: 'Product design',
+		value: 'productDesign',
 	},
 ];
 

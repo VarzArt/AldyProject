@@ -15,6 +15,14 @@ export type ModalProps = {
 	className?: string;
 };
 
+export type BriefOpenOptions = {
+	source?: string;
+	modalClassName?: string;
+	closeOnOverlayClick?: boolean;
+	closeOnEsc?: boolean;
+	showCloseButton?: boolean;
+};
+
 export default function Modal({
 	open,
 	onClose,

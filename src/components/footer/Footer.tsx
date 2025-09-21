@@ -78,7 +78,7 @@ export default function Footer({}: Props) {
 						<ScrollAnimation>
 							<div className={`border-b-2 pb-1 w-max border-b-black`}>
 								<div className="xl:text-[48px] lg:text-[40px] sm:text-[28px] md:text-[32px] text-[32px] font-medium z-20">
-									hello@aldy.com
+									hello@aldystudio.com
 								</div>
 							</div>
 						</ScrollAnimation>
