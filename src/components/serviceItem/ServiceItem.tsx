@@ -14,7 +14,7 @@ export default function ServiceItem({ name, desc, explanation }: ServiceItemProp
 		>
 			<div className="xl:text-[36px] lg:text-2xl text-4xl text-(--backPrimary) font-bold">{name.toUpperCase()}</div>
 			<div className="xl:text-[22px] text-base text-(--pinkPrimary)">{`(${explanation})`}</div>
-			<div className="xl:text-[24px] lg:text-[18px] text-xl font-medium leading-[110%] lg:w-full w-[280px] text-black mt-auto">
+			<div className="xl:text-[24px] lg:text-[18px] text-xl font-medium leading-[110%] lg:w-full w-[280px] text-[#46464A] mt-auto">
 				{desc}
 			</div>
 		</div>
