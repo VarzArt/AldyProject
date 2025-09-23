@@ -53,7 +53,7 @@ export default function Brief({}: Props) {
 
 				<div
 					ref={arrowRef}
-					className="absolute xl:-left-40 md:-left-35 sm:-left-55 right-[35px] xl:top-[330px] lg:top-[267.5px] sm:top-[240px] top-[155px] z-0 md:w-[50%] sm:w-[550px] w-[500px] xl:h-[1161px] h-[1000px] cursor-pointer"
+					className="absolute xl:-left-40 md:-left-35 sm:-left-55 right-25 xl:top-[330px] lg:top-[267.5px] sm:top-[240px] top-[155px] z-0 md:w-[50%] sm:w-[550px] w-[500px] xl:h-[1161px] h-[1000px] cursor-pointer"
 					onMouseMove={handleMouseMove}
 					onMouseLeave={handleMouseLeave}
 				>
@@ -61,7 +61,7 @@ export default function Brief({}: Props) {
 						<Image
 							src={arrow}
 							alt="pink bubble arrow picture"
-							className="transition-transform duration-300 ease-out sm:w-full sm:h-[65%] w-[600px] h-[500px]"
+							className="transition-transform duration-300 ease-out sm:w-full sm:h-[65%] max-h-[620px] max-w-[710px] w-[600px] h-[500px]"
 							style={{
 								transform: `translate(${position.x}px, ${position.y}px)`,
 							}}
