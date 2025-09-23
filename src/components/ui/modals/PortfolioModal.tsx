@@ -102,11 +102,14 @@ export const PortfolioModal: React.FC<PortfolioModalProps> = ({ open, onClose, c
 					animate="visible"
 					exit="exit"
 				>
-					<motion.div className="fixed inset-0 bg-(--backPrimary)" aria-hidden />
+					<motion.div className="fixed inset-0 bg-(--backPrimary)/90" aria-hidden onClick={onClose} />
 
 					<motion.div
 						ref={panelRef}
-						className={'relative h-full w-full overflow-y-auto ' + (className ?? '')}
+						className={
+							'relative h-full w-full overflow-y-auto bg-(--backPrimary) ml-auto mr-auto max-w-[1920px]' +
+							(className ?? '')
+						}
 						variants={panelVariants}
 					>
 						<div className="min-h-full">

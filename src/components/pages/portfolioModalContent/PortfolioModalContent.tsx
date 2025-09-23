@@ -50,7 +50,7 @@ export default function PortfolioModalContent({ title, desc, services, year, src
 			<motion.div variants={itemVariants} className="w-full flex justify-center items-center text-center">
 				<Heading
 					text={title as string}
-					className="text-[40px] sm:text-[70px] lg:text-[98px] uppercase font-bold leading-[100%] lg:w-[85%]"
+					className="text-[40px] sm:text-[70px] lg:text-[98px] uppercase font-bold leading-[100%] lg:w-[85%] xl:max-w-[1000px]"
 				/>
 			</motion.div>
 
@@ -73,14 +73,14 @@ export default function PortfolioModalContent({ title, desc, services, year, src
 
 			{Array.isArray(srcs) && srcs.length > 0 && (
 				<motion.div
-					className="grid grid-cols-1 lg:grid-cols-[50%_50%] lg:[&>*:nth-child(3n+1)]:col-span-2 gap-1 sm:gap-2 lg:gap-3 w-full max-w-[1400px] py-7"
+					className="grid grid-cols-1 lg:grid-cols-[50%_50%] lg:[&>*:nth-child(3n+1)]:col-span-2 gap-1 sm:gap-2 lg:gap-3 w-full py-7"
 					variants={containerVariants}
 				>
 					{srcs?.map((img, i) => (
 						<motion.figure
 							key={i}
 							variants={itemVariants}
-							className="relative w-full overflow-hidden h-100 sm:h-205 lg:h-180 rounded-md"
+							className="relative w-full overflow-hidden h-100 sm:h-205 lg:h-180 xl:h-auto xl:min-h-[950px] rounded-md"
 						>
 							{img.type === 'photo' ? (
 								<ImageUI

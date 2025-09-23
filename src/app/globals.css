@@ -68,3 +68,13 @@ body {
 video::-webkit-media-controls {
 	display: none !important;
 }
+
+::-webkit-scrollbar {
+	width: 3px;
+	background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: lightgray;
+	border-radius: 1px;
+}

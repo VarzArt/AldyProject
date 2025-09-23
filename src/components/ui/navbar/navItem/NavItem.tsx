@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import React from 'react';
 
 type NavItemProps = {
@@ -11,7 +11,6 @@ type NavItemProps = {
 
 export default function NavItem({ label, href }: NavItemProps) {
 	const pathname = usePathname();
-	const router = useRouter();
 
 	const onClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
 		const url = new URL(href, window.location.origin);

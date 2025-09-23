@@ -57,8 +57,8 @@ export default function Portfolio({}: Props) {
 							<div className="uppercase xl:text-sm lg:text-xs sm:text-base text-sm font-medium">ABOUT</div>
 						</div>
 					</ScrollAnimation>
-					<ScrollAnimation className="lg:mt-[-40px] mt-[-20px]">
-						<div className="xl:text-xl lg:text-[18px] sm:text-2xl text-[18px] font-medium lg:w-[65%] w-full opacity-80 sm:ml-[50%] md:ml-0">
+					<ScrollAnimation className="lg:mt-[-40px] mt-[-20px] sm:mt-[-67px]">
+						<div className="xl:text-xl lg:text-[18px] sm:text-xl text-[18px] font-medium lg:w-[65%] w-full sm:w-auto opacity-80 sm:ml-[26%] lg:ml-0">
 							Our portfolio includes landing pages, corporate sites, e-commerce, and full branding for clients across
 							Europe. Each project reflects a thoughtful process and close collaboration.
 						</div>

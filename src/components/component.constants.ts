@@ -26,6 +26,29 @@ export const navBarTabs = [
 	},
 ];
 
+export const footerBarTabs = [
+	{
+		id: 1,
+		label: 'about',
+		href: '#about',
+	},
+	{
+		id: 2,
+		label: 'portfolio',
+		href: '#portfolio',
+	},
+	{
+		id: 3,
+		label: 'expertise',
+		href: '#expertise',
+	},
+	{
+		id: 4,
+		label: 'services',
+		href: '#services',
+	},
+];
+
 export const socialMedia = [
 	{
 		id: 1,
