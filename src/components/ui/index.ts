@@ -10,3 +10,4 @@ export * from './textarea';
 export * from './container';
 export * from './mobileMenu';
 export * from './modals';
+export * from './toast';

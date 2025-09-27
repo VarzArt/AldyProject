@@ -26,7 +26,7 @@ export default function Portfolio({}: Props) {
 
 				<div className="lg:grid lg:grid-cols-[50%_50%] flex flex-col justify-between text-black lg:pt-[60px] pt-5 gap-2 lg:gap-y-25 gap-y-10">
 					{portfolioItemsConst.map((item, index) => (
-						<ScrollAnimation key={item.id} delay={index * 0.3} className="">
+						<ScrollAnimation key={item.id} className="">
 							<PortfolioItem
 								name={item.name}
 								type={item.type}
