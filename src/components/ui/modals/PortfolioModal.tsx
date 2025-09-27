@@ -66,12 +66,12 @@ export const PortfolioModal: React.FC<PortfolioModalProps> = ({ open, onClose, c
 	const portalTarget =
 		typeof window !== 'undefined'
 			? (document.getElementById('modal-root') as HTMLElement) ||
-			  (() => {
+				(() => {
 					const el = document.createElement('div');
 					el.id = 'modal-root';
 					document.body.appendChild(el);
 					return el;
-			  })()
+				})()
 			: null;
 
 	if (!portalTarget) return null;
@@ -82,7 +82,7 @@ export const PortfolioModal: React.FC<PortfolioModalProps> = ({ open, onClose, c
 				type="button"
 				aria-label="Закрыть модальное окно"
 				onClick={onClose}
-				className="fixed right-2 sm:right-5 top-2 sm:top-5 inline-flex h-9 w-9 items-center justify-center rounded-full cursor-pointer hover:scale-150 transition-transform duration-300 ease-in-out z-100"
+				className="fixed right-5 top-5 inline-flex h-9 w-9 items-center justify-center rounded-full cursor-pointer hover:scale-150 transition-transform duration-300 ease-in-out z-100 border border-white"
 			>
 				<X className="w-4 h-4 sm:w-6 sm:h-6" />
 			</button>

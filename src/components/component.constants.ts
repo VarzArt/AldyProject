@@ -8,6 +8,7 @@ export const navBarTabs = [
 		id: 2,
 		label: 'portfolio',
 		href: '#portfolio',
+		subheader: '04',
 	},
 	{
 		id: 3,
@@ -53,17 +54,21 @@ export const socialMedia = [
 	{
 		id: 1,
 		label: 'telegram',
+		href: 'https://t.me/studioaldy',
 	},
 	{
 		id: 2,
 		label: 'whatsapp',
+		href: 'https://wa.me/420720518937',
 	},
 	{
 		id: 3,
 		label: 'linkedin',
+		href: 'https://www.linkedin.com/company/aldystudio/',
 	},
 	{
 		id: 4,
-		label: 'behance',
+		label: 'instagram',
+		href: 'https://www.instagram.com/studioaldy/',
 	},
 ];

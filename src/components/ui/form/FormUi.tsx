@@ -8,85 +8,93 @@ import SubHeader from '../subheader/SubHeader';
 import ButtonUi from '../button/ButtonUi';
 import ScrollAnimation from '../scrollAnimation/ScrollAnimation';
 import clsx from 'clsx';
+import { toast } from 'react-hot-toast';
 
 type FormUiProps = {
 	variant?: 'page' | 'modal';
 };
 
 const items = [
-	{
-		id: 1,
-		label: 'Web design',
-		value: 'webdesign',
-	},
-	{
-		id: 2,
-		label: 'Branding',
-		value: 'branding',
-	},
-	{
-		id: 3,
-		label: 'Mobile App',
-		value: 'mobileApp',
-	},
-	{
-		id: 5,
-		label: 'Social nets design',
-		value: 'socialNetsDesign',
-	},
-	{
-		id: 4,
-		label: 'Interior Design',
-		value: 'interiorDesign',
-	},
-
-	{
-		id: 6,
-		label: 'Product design',
-		value: 'productDesign',
-	},
+	{ id: 1, label: 'Web design', value: 'webdesign' },
+	{ id: 2, label: 'Branding', value: 'branding' },
+	{ id: 3, label: 'Mobile App', value: 'mobileApp' },
+	{ id: 5, label: 'Social nets design', value: 'socialNetsDesign' },
+	{ id: 4, label: 'Interior Design', value: 'interiorDesign' },
+	{ id: 6, label: 'Product design', value: 'productDesign' },
 ];
 
-const budjetItems = [
-	{
-		id: 1,
-		label: '1K - 5K',
-		value: '1-5',
-	},
-	{
-		id: 2,
-		label: '5K - 10K',
-		value: '5-10',
-	},
-	{
-		id: 3,
-		label: '10K - 50K',
-		value: '10-50',
-	},
-	{
-		id: 4,
-		label: 'more than 50K',
-		value: '50+',
-	},
+const budgetItems = [
+	{ id: 1, label: '1K - 5K', value: '1-5' },
+	{ id: 2, label: '5K - 10K', value: '5-10' },
+	{ id: 3, label: '10K - 50K', value: '10-50' },
+	{ id: 4, label: 'more than 50K', value: '50+' },
 ];
 
 export default function FormUi({ variant = 'page' }: FormUiProps) {
-	const handleChange = (selectedItem: string | string[]) => {
-		console.log(selectedItem);
-	};
+	const [selectedServices, setSelectedServices] = useState<string[]>(['webdesign']);
+	const [budget, setBudget] = useState<string>('1-5');
+	const [formData, setFormData] = useState({ name: '', email: '', projectDetails: '' });
+	const [loading, setLoading] = useState(false);
 
-	const [formData, setFormData] = useState({
-		name: '',
-		email: '',
-		projectDetails: '',
-	});
-
-	const handleChangeInput = (field: string) => (value: string) => {
+	const handleChangeInput = (field: 'name' | 'email' | 'projectDetails') => (value: string) => {
 		setFormData((prev) => ({ ...prev, [field]: value }));
 	};
 
+	const handleChangeServices = (val: string | string[]) => {
+		setSelectedServices(Array.isArray(val) ? val : val ? [val] : []);
+	};
+
+	const handleChangeBudget = (val: string | string[]) => {
+		setBudget(Array.isArray(val) ? (val[0] ?? '') : val);
+	};
+
+	const onSubmit = async (e: React.FormEvent) => {
+		e.preventDefault();
+
+		if (selectedServices.length === 0) return toast.error('Please select at least one service');
+		if (!budget) return toast.error('Specify the budget');
+		if (!formData.name.trim()) return toast.error('Enter your name');
+		if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) return toast.error('Incorrect email');
+
+		setLoading(true);
+
+		await toast
+			.promise(
+				(async () => {
+					const res = await fetch('/api/brief', {
+						method: 'POST',
+						headers: { 'Content-Type': 'application/json' },
+						body: JSON.stringify({
+							services: selectedServices,
+							budget,
+							name: formData.name.trim(),
+							email: formData.email.trim(),
+							projectDetails: formData.projectDetails.trim(),
+						}),
+					});
+
+					const data = await res.json().catch(() => ({}));
+					if (!res.ok) {
+						throw new Error(data?.error || 'Sending error');
+					}
+					return data;
+				})(),
+				{
+					loading: 'Sending...',
+					success: 'Thanks! Your request has been sent ✅',
+					error: (err) => (err instanceof Error ? err.message : 'Sending error'),
+				}
+			)
+			.then(() => {
+				setSelectedServices(['webdesign']);
+				setBudget('1-5');
+				setFormData({ name: '', email: '', projectDetails: '' });
+			})
+			.finally(() => setLoading(false));
+	};
+
 	return (
-		<form className="w-full font-[Satoshi]">
+		<form className="w-full font-[Satoshi]" onSubmit={onSubmit} noValidate>
 			<div
 				data-variant={variant}
 				className={clsx(
@@ -96,16 +104,17 @@ export default function FormUi({ variant = 'page' }: FormUiProps) {
 				)}
 			>
 				<ScrollAnimation>
-					<SubHeader text="service"></SubHeader>
+					<SubHeader text="service" />
 				</ScrollAnimation>
 				<ChipsUi
 					items={items}
-					onChange={handleChange}
-					defaultSelected={['webdesign']}
+					selected={selectedServices}
+					onChange={(val) => setSelectedServices(Array.isArray(val) ? val : val ? [val] : [])}
 					multiselect
 					isModal={variant === 'modal'}
-				></ChipsUi>
+				/>
 			</div>
+
 			<div
 				data-variant={variant}
 				className={clsx(
@@ -115,15 +124,16 @@ export default function FormUi({ variant = 'page' }: FormUiProps) {
 				)}
 			>
 				<ScrollAnimation>
-					<SubHeader text="Budget in USD"></SubHeader>
+					<SubHeader text="Budget in USD" />
 				</ScrollAnimation>
 				<ChipsUi
-					items={budjetItems}
-					onChange={handleChange}
-					defaultSelected="1-5"
+					items={budgetItems}
+					selected={budget}
+					onChange={(val) => setBudget(Array.isArray(val) ? (val[0] ?? '') : val)}
 					isModal={variant === 'modal'}
-				></ChipsUi>
+				/>
 			</div>
+
 			<div
 				data-variant={variant}
 				className={clsx(
@@ -139,7 +149,8 @@ export default function FormUi({ variant = 'page' }: FormUiProps) {
 						value={formData.name}
 						onChange={handleChangeInput('name')}
 						isModal={variant === 'modal'}
-					></InputTextUi>
+						required
+					/>
 				</ScrollAnimation>
 				<ScrollAnimation>
 					<InputTextUi
@@ -148,7 +159,9 @@ export default function FormUi({ variant = 'page' }: FormUiProps) {
 						value={formData.email}
 						onChange={handleChangeInput('email')}
 						isModal={variant === 'modal'}
-					></InputTextUi>
+						type="email"
+						required
+					/>
 				</ScrollAnimation>
 				<ScrollAnimation>
 					<InputTextareaUi
@@ -158,15 +171,24 @@ export default function FormUi({ variant = 'page' }: FormUiProps) {
 						onChange={handleChangeInput('projectDetails')}
 						rows={variant !== 'modal' ? 3 : 1}
 						isModal={variant === 'modal'}
-					></InputTextareaUi>
+						required
+					/>
 				</ScrollAnimation>
 			</div>
+
 			<ScrollAnimation>
 				<div
 					data-variant={variant}
 					className={clsx('w-full', 'data-[variant=modal]:flex data-[variant=modal]:justify-start')}
 				>
-					<ButtonUi variant={variant !== 'modal' ? 'subSecondary' : 'mobile'}>discuss project</ButtonUi>
+					<ButtonUi
+						variant={variant !== 'modal' ? 'subSecondary' : 'mobile'}
+						type="submit"
+						disabled={loading}
+						onClick={(e) => onSubmit(e)}
+					>
+						{loading ? 'sending...' : 'discuss project'}
+					</ButtonUi>
 				</div>
 			</ScrollAnimation>
 		</form>

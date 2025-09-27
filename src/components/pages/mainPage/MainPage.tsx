@@ -17,7 +17,7 @@ export default function MainPage({}: Props) {
 					<div className="uppercase opacity-60 xl:text-sm text-[13px]">your vision to reality</div>
 				</div>
 				<div className="flex items-center justify-between w-full">
-					<YearItem year="2019"></YearItem>
+					<YearItem year="2015"></YearItem>
 					<Heading
 						text={`digital design \n studio`}
 						className="uppercase xl:text-[112px] lg:text-[98px] md:text-[78px] sm:text-[68px] text-[40px] w-full font-bold leading-[100%] tracking-[-2%] max-w-[1168px] text-center whitespace-pre-line"
@@ -76,7 +76,7 @@ export default function MainPage({}: Props) {
 				<div className="xl:pt-[140px] pt-20 flex justify-between sm:grid sm:grid-cols-[50%_50%] lg:justify-between lg:flex w-full font-[Satoshi] lg:flex-row flex-col lg:gap-0 gap-2">
 					{infoCardsConstants.map((infoCard, index) => (
 						<div key={infoCard.id} className="lg:w-[24.5%] w-full">
-							<InfoCard number={infoCard.id} info={infoCard.info} desc={infoCard.desc} appearDelay={index * 0.3} />
+							<InfoCard number={infoCard.id} info={infoCard.info} desc={infoCard.desc} appearDelay={index * 0.1} />
 						</div>
 					))}
 				</div>
