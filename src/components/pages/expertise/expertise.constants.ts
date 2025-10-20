@@ -22,11 +22,11 @@ export const expertiseConsts = [
 	{
 		id: 5,
 		name: 'Branding',
-		qualities: ['logo', 'corporate Identity'],
+		qualities: ['logo', 'corporate Identity', '2d illustrations'],
 	},
 	{
 		id: 6,
-		name: 'Graphics',
-		qualities: ['2d illustrations', 'Marketing materials'],
+		name: 'SMM',
+		qualities: ['SOCIAL MEDIA STRATEGY', 'REELS & STORIES'],
 	},
 ];

@@ -42,7 +42,7 @@ export default function Brief({}: Props) {
 				<div className="sm:w-[50%] w-full h-[600px] sm:h-unset">
 					<ScrollAnimation>
 						<Heading
-							text="please tell us about your project"
+							text="tell us about your project"
 							className="xl:text-[64px] lg:text-[54px] sm:text-[42px] text-[36px] font-black uppercase text-white leading-[110%] w-[80%]"
 						></Heading>
 					</ScrollAnimation>

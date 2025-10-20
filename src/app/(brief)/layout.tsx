@@ -1,4 +1,4 @@
-import './globals.css';
+import { HeaderS, ToasterClient } from '@/components';
 
 export const metadata = {
 	title: 'AldyStudio',
@@ -14,8 +14,10 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en">
-			<body>{children}</body>
-		</html>
+		<section>
+			<ToasterClient />
+			<HeaderS></HeaderS>
+			{children}
+		</section>
 	);
 }
