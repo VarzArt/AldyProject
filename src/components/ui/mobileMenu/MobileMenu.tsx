@@ -76,9 +76,6 @@ export default function MobileMenu() {
 											onClick={(e) => handleAnchorClick(e, item.href)}
 											className="block relative"
 										>
-											{item.subheader && (
-												<SubHeader text="04" className="absolute bottom-[5px] left-[-25px]"></SubHeader>
-											)}
 											<Heading
 												text={item.label}
 												className="text-[28px] text-white uppercase font-bold focus:text-(--pinkPrimary)"

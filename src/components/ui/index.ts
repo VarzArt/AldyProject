@@ -11,3 +11,4 @@ export * from './container';
 export * from './mobileMenu';
 export * from './modals';
 export * from './toast';
+export * from './checkbox';

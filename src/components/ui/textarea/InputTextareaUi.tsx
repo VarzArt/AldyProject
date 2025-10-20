@@ -31,7 +31,7 @@ export const InputTextareaUi = ({
 	const handleBlur = () => setIsFocused(value !== '');
 
 	return (
-		<div className={clsx(isModal && 'mb-3', !isModal && 'mb-6', `relative w-full ${className}`)}>
+		<div className={clsx(isModal && 'mb-3', `relative w-full ${className}`)}>
 			<textarea
 				ref={textareaRef}
 				id={id}

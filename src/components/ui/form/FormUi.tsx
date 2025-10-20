@@ -40,14 +40,6 @@ export default function FormUi({ variant = 'page' }: FormUiProps) {
 		setFormData((prev) => ({ ...prev, [field]: value }));
 	};
 
-	const handleChangeServices = (val: string | string[]) => {
-		setSelectedServices(Array.isArray(val) ? val : val ? [val] : []);
-	};
-
-	const handleChangeBudget = (val: string | string[]) => {
-		setBudget(Array.isArray(val) ? (val[0] ?? '') : val);
-	};
-
 	const onSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
 
@@ -137,7 +129,7 @@ export default function FormUi({ variant = 'page' }: FormUiProps) {
 			<div
 				data-variant={variant}
 				className={clsx(
-					'flex flex-col xl:gap-3 gap-0 w-full sm:w-unset',
+					'flex flex-col gap-4 w-full sm:w-unset',
 					'data-[variant=page]:xl:mb-[40px] data-[variant=page]:sm:mb-0 data-[variant=page]:mb-2',
 					'data-[variant=modal]:mb-1 data-[variant=modal]:xl:mb-6'
 				)}
@@ -176,7 +168,7 @@ export default function FormUi({ variant = 'page' }: FormUiProps) {
 				</ScrollAnimation>
 			</div>
 
-			<ScrollAnimation>
+			<ScrollAnimation className="mt-4">
 				<div
 					data-variant={variant}
 					className={clsx('w-full', 'data-[variant=modal]:flex data-[variant=modal]:justify-start')}

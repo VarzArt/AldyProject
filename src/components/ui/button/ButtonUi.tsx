@@ -16,7 +16,7 @@ type Variants = {
 
 export default function ButtonUi({ children, variant = 'primary', className = '', ...props }: ButtonProps) {
 	const baseStyles =
-		'font-[Satoshi] uppercase rounded-[100px] duration-150 ease-in-out cursor-pointer sm:text-[10px] md:text-xs text-xs xl:text-sm';
+		'font-[Satoshi] uppercase rounded-[100px] duration-150 ease-in-out cursor-pointer sm:text-[10px] md:text-xs text-xs xl:text-sm disabled:opacity-50 disabled:hover:br-(--pinkPrimary)';
 
 	const variants: Variants = {
 		primary: 'border border-(--pinkPrimary) hover:bg-(--pinkPrimary) px-[28px] py-[11px]',
