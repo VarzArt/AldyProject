@@ -12,7 +12,7 @@ export const metadata = {
 		'We are a design studio specializing in web development and branding. Our team of talented designers and developers creates unique visual solutions that reflect the individuality of your brand and ensures revenue growth.',
 	keywords: ['aldy', 'digital design', 'web design', 'UI/UX', 'aldy studio', 'branding', 'motion design', 'frontend'],
 	openGraph: {
-		title: 'VarzArt Studio — Digital Design Studio',
+		title: 'Aldy Studio — Digital Design Studio',
 		description:
 			'We are a design studio specializing in web development and branding. Our team of talented designers and developers creates unique visual solutions that reflect the individuality of your brand and ensures revenue growth.',
 		url: 'https://aldystudio.com',
